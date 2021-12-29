@@ -1,0 +1,18 @@
+﻿@page "/"
+@using Volo.Abp.MultiTenancy
+@attribute [Authorize]
+@inherits BookStoreComponentBase
+@inject ICurrentTenant CurrentTenant
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@if (!CurrentUser.IsAuthenticated)
+{
+    <a class="btn btn-primary" href="/authentication/login">
+        <i class="fa fa-sign-in-alt"></i> @L["Login"]
+    </a>
+}
+else
+{
+    <a class="btn btn-primary" href="/authentication/logout">
+        <i class="fa fa-sign-in-alt"></i> @L["Logout"]
+    </a>
+}

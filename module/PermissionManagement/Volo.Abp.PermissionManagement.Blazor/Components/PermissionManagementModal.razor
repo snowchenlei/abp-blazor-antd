@@ -1,0 +1,66 @@
+﻿@using Microsoft.Extensions.Localization
+@using Volo.Abp.PermissionManagement.Localization
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+
+<Modal Title="@($"{L["Permissions"]} - {_entityDisplayName}")"
+       Visible="_showPermissionModal"
+       OnCancel="@CloseModal">
+
+    @*<Form>
+        <FormItem Label="@L["DisplayName:UserName"]">
+            <Checkbox @bind-Checked="GrantAll" Disabled="@disabled">@L["SelectAllInAllTabs"]</Checkbox>
+        </FormItem>
+        <Divider />
+        @if (_groups != null)
+        {
+            <Tabs @bind-ActiveKey="@CreateModalSelectedTab" Animated>
+                <TabPane Tab="@L["UserInformations"]" Key="UserInformations">
+
+                </TabPane>
+            </Tabs>
+        }
+    </Form>*@
+    @*@if (_groups != null)
+    {
+        <Tabs TabPosition="TabPosition.Left" Pills="true" @bind-SelectedTab="@_selectedTabName">
+            @foreach (var group in _groups)
+            {
+                <TabPane Key="@group.Name">
+                    <TabTemplate>
+                        @if (group.Permissions.Any(x => x.IsGranted))
+                        {
+                            <span>
+                                <b>@group.DisplayName ( @(group.Permissions.Count(x => x.IsGranted)) )</b>
+                            </span>
+                        }
+                        else
+                        {
+                            <span>
+                                @group.DisplayName ( @(group.Permissions.Count(x => x.IsGranted)) )
+                            </span>
+                        }
+                    </TabTemplate>
+                    <ChildContent>
+                        <h4>@group.DisplayName</h4>
+                        <Divider />
+                        <Checkbox Checked="@(group.Permissions.All(x => x.IsGranted))"
+                          CheckedChanged="@(b=>GroupGrantAllChanged(b, group))">
+                            @L["SelectAllInThisTab"]
+                        </Checkbox>
+                        <Divider />
+
+                        @foreach (var permission in group.Permissions)
+                        {
+
+                            <Checkbox Checked="@permission.IsGranted"
+                          Disabled="@(IsDisabledPermission(permission))"
+                          CheckedChanged="@(b => PermissionChanged(b, group, permission))">
+                                @GetShownName(permission)
+                            </Checkbox>
+                        }
+                    </ChildContent>
+                </TabPane>
+            }
+        </Tabs>
+    }*@
+</Modal>

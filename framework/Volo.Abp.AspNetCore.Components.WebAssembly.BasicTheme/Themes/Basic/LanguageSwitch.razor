@@ -1,0 +1,75 @@
+﻿@using Volo.Abp.Localization
+@using System.Globalization
+@using System.Collections.Immutable
+@using AntDesign
+@using AntDesign.Internal
+@inject ILanguageProvider LanguageProvider
+@inject IJSRuntime JsRuntime
+@if (_otherLanguages != null && _otherLanguages.Any())
+{
+    <Dropdown Placement="Placement.BottomRight">
+        <Overlay>
+            <Menu>
+                @foreach (var language in _otherLanguages)
+                {
+                <MenuItem @onclick="() => ChangeLanguageAsync(language)">
+                    @language.DisplayName
+                    </MenuItem>
+                }
+            </Menu>
+        </Overlay>
+        <ChildContent>
+            <span class="ant-dropdown-trigger aab-components-right-content-index-action" 
+            style="cursor: pointer; padding: 12 px; display: inline-flex; align-items: center; 
+                justify-content: center; font-size: 18px; vertical-align: middle;" @onclick:preventDefault>
+                <span class="anticon">@_currentLanguage.DisplayName</span>
+            </span>
+        </ChildContent>
+    </Dropdown>
+}
+@code {
+    private IReadOnlyList<LanguageInfo> _otherLanguages;
+    private LanguageInfo _currentLanguage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var selectedLanguageName = await JsRuntime.InvokeAsync<string>(
+            "localStorage.getItem",
+            "Abp.SelectedLanguage"
+            );
+
+        _otherLanguages = await LanguageProvider.GetLanguagesAsync();
+
+        if (!_otherLanguages.Any())
+        {
+            return;
+        }
+
+        if (!selectedLanguageName.IsNullOrWhiteSpace())
+        {
+            _currentLanguage = _otherLanguages.FirstOrDefault(l => l.UiCultureName == selectedLanguageName);
+        }
+
+        if (_currentLanguage == null)
+        {
+            _currentLanguage = _otherLanguages.FirstOrDefault(l => l.UiCultureName == CultureInfo.CurrentUICulture.Name);
+        }
+
+        if (_currentLanguage == null)
+        {
+            _currentLanguage = _otherLanguages.FirstOrDefault();
+        }
+
+        _otherLanguages = _otherLanguages.Where(l => l != _currentLanguage).ToImmutableList();
+    }
+
+    private async Task ChangeLanguageAsync(LanguageInfo language)
+    {
+        await JsRuntime.InvokeVoidAsync(
+            "localStorage.setItem",
+            "Abp.SelectedLanguage", language.UiCultureName
+            );
+
+        await JsRuntime.InvokeVoidAsync("location.reload");
+    }
+}

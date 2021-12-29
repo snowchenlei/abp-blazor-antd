@@ -1,0 +1,41 @@
+﻿@using Volo.Abp.Ui.Branding
+@using Microsoft.AspNetCore.Authorization
+@inject IBrandingProvider BrandingProvider
+@inherits LayoutComponentBase
+<Layout Style="min-height: 100%;">
+    <Sider Collapsible Collapsed=@Collapsed
+           CollapsedWidth="48"
+           Style="@SiderStyle"
+           Width="SiderWidth"
+           Theme="SiderTheme"
+           OnCollapse="ToggleCollapse">
+        <div class="ant-pro-sider-logo">
+            @if (!BrandingProvider.LogoUrl.IsNullOrWhiteSpace() && Collapsed)
+            {
+                <img src="@BrandingProvider.LogoUrl" alt="@BrandingProvider.AppName">
+            }
+            @if (!Collapsed)
+            {
+                <h1>@BrandingProvider.AppName</h1>
+            }
+
+        </div>
+        <NavMenu />
+    </Sider>
+    <Layout Class="ant-layout" style="position: relative;">
+        <Header Class="ant-pro-fixed-header-action ant-pro-header-dark" Style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;">
+            <div class="ant-pro-global-header ant-pro-global-header-layout-side">
+                <div style="flex: 1 1 0%;"></div>
+                <NavToolbar />
+            </div>
+        </Header>
+        <Content Class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header">
+            @*<PageAlert />*@
+            @Body
+
+            <UiMessageAlert />
+                @*<UiNotificationAlert />
+                <UiPageProgress />*@
+        </Content>
+    </Layout>
+</Layout>

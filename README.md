@@ -1,2 +1,2 @@
-# abp-blazor-antd
-abp+antdBlazor
+# ABP Antd Blazor Extension
+ABP BlazorUI的Antd版本

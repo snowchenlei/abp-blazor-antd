@@ -1,0 +1,11 @@
+﻿@if (Menu != null)
+{
+<Menu Mode=@MenuMode.Inline 
+      Theme="MenuTheme"
+      Selectable="false">
+    @foreach (var menuItem in Menu.Items)
+    {
+    <FirstLevelNavMenuItem MenuItem="menuItem" />
+    }
+</Menu>
+}

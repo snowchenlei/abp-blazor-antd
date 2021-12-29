@@ -1,0 +1,12 @@
+﻿@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+<Tooltip Title="@("Help")" Placement="@Placement.Bottom">
+    <span class="action">
+        <Icon Type="notification" Theme="outline" @onclick="ShowNotifications" />
+    </span>
+</Tooltip>
+@code {
+    private async Task ShowNotifications()
+    {
+        await Message.Info("TODO: Show notifications");
+    }
+}

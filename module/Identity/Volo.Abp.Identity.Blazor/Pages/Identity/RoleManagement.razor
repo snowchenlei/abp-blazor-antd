@@ -1,0 +1,118 @@
+﻿@page "/identity/roles"
+@attribute [Authorize(IdentityPermissions.Roles.Default)]
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.Identity.Localization
+@using Volo.Abp.PermissionManagement.Blazor.Components
+@using global::Localization.Resources.AbpUi
+@using Volo.Abp.AspNetCore.Components
+@using Volo.Abp.AntdBlazorUI
+@inject AbpBlazorMessageLocalizerHelper<IdentityResource> LH
+@inherits AbpCrudPageBase<IIdentityRoleAppService, IdentityRoleDto, Guid, GetIdentityRolesInput, IdentityRoleCreateDto, IdentityRoleUpdateDto>
+<PageContainer Title="@L["Roles"]">
+    <Breadcrumb>
+        <Breadcrumb>
+            @foreach (BreadcrumbItem breadcrumbItem in BreadcrumbItems)
+            {
+                @breadcrumbItem.BreadCrumb
+            }
+        </Breadcrumb>
+    </Breadcrumb>
+
+    <ChildContent>
+        <Card>
+            @if (HasCreatePermission)
+            {
+                <Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Plus" OnClick="OpenCreateModalAsync">@L["NewRole"]</Button>
+            }
+            @* ************************* DATA GRID ************************* *@
+            <Table TItem="IdentityRoleDto" DataSource="Entities" @bind-PageIndex="CurrentPage" @bind-PageSize="PageSize" Total="TotalCount ?? 0"
+                   Loading="Loading" OnChange="SearchEntitiesAsync" RemoteDataSource>
+                <Column Title="@L["RoleName"]" @bind-Field="@context.Name"></Column>
+                <ActionColumn Title="@L["Action"]">
+                    <Space Size=@("middle")>
+                        @if (HasUpdatePermission)
+                        {
+                            <SpaceItem>
+                                <Button Type="@ButtonType.Link" OnClick="async () => await OpenEditModalAsync(context)">@L["Edit"]</Button>
+                            </SpaceItem>
+                        }
+                        @if (HasManagePermissionsPermission)
+                        {
+                            <SpaceItem>
+                                <Button Type="@ButtonType.Link" OnClick="async () => await OpenPermissionModalAsync(context)">@L["Permissions"]</Button>
+                            </SpaceItem>
+                        }
+                        @if (HasDeletePermission)
+                        {
+                            <SpaceItem>
+                                <Popconfirm Title="@GetDeleteConfirmationMessage(context)"
+                                        OnConfirm="async () => await DeleteEntityAsync(context)"
+                                        OkText="Yes"
+                                        CancelText="No">
+                                    <Button Type="@ButtonType.Link">@L["Delete"]</Button>
+                                </Popconfirm>
+                            </SpaceItem>
+                        }
+                    </Space>
+                </ActionColumn>
+            </Table>
+        </Card>
+    </ChildContent>
+</PageContainer>
+
+@* ************************* CREATE MODAL ************************* *@
+@if (HasCreatePermission)
+{
+    <Modal Title="@L["NewRole"]"
+       Visible="@ShowCreateModal"
+       ConfirmLoading="@CreateModalConfirmLoading"
+       OnOk="()=>{ IdentityRoleCreateForm.Submit(); }"
+       OnCancel="@CloseCreateModalAsync">
+        <Form @ref="IdentityRoleCreateForm"
+          Model="@NewEntity"
+          LabelColSpan="4"
+          WrapperColSpan="20"
+          OnFinish="CreateEntityAsync">
+            <FormItem Label="@L["DisplayName:RoleName"]">
+                <Input @bind-Value="@context.Name" />
+            </FormItem>
+            <FormItem WrapperColOffset="4" WrapperColSpan="20">
+                <Checkbox @bind-Value="context.IsDefault">@L["DisplayName:IsDefault"]</Checkbox>
+            </FormItem>
+            <FormItem WrapperColOffset="4" WrapperColSpan="20">
+                <Checkbox @bind-Value="context.IsPublic">@L["DisplayName:IsPublic"]</Checkbox>
+            </FormItem>
+        </Form>
+    </Modal>
+}
+@* ************************* EDIT MODAL ************************* *@
+@if (HasUpdatePermission)
+{
+    <Modal Title="@L["Edit"]"
+       Visible="@ShowEditModal"
+       ConfirmLoading="@EditModalConfirmLoading"
+       OnOk="()=>{ IdentityRoleEditForm.Submit(); }"
+       OnCancel="@CloseEditModalAsync">
+        <Form @ref="IdentityRoleEditForm"
+          Model="@EditingEntity"
+          LabelColSpan="4"
+          WrapperColSpan="20"
+          OnFinish="UpdateEntityAsync">
+            <FormItem Label="@L["DisplayName:RoleName"]">
+                <Input @bind-Value="@context.Name" />
+            </FormItem>
+            <FormItem WrapperColOffset="4" WrapperColSpan="20">
+                <Checkbox @bind-Value="context.IsDefault">@L["DisplayName:IsDefault"]</Checkbox>
+            </FormItem>
+            <FormItem WrapperColOffset="4" WrapperColSpan="20">
+                <Checkbox @bind-Value="context.IsPublic">@L["DisplayName:IsPublic"]</Checkbox>
+            </FormItem>
+        </Form>
+    </Modal>
+}
+
+@if (HasManagePermissionsPermission)
+{
+    <PermissionManagementModal @ref="PermissionManagementModal" />
+}

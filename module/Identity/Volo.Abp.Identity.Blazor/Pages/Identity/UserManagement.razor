@@ -1,0 +1,176 @@
+﻿@page "/identity/users"
+@attribute [Authorize(IdentityPermissions.Users.Default)]
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.Identity.Localization
+@using Volo.Abp.PermissionManagement.Blazor.Components
+@using global::Localization.Resources.AbpUi
+@using Volo.Abp.AspNetCore.Components
+@using Volo.Abp.AntdBlazorUI
+@inject AbpBlazorMessageLocalizerHelper<IdentityResource> LH
+@inherits AbpCrudPageBase<IIdentityUserAppService, IdentityUserDto, Guid, GetIdentityUsersInput, IdentityUserCreateDto, IdentityUserUpdateDto>
+
+<PageContainer Title="@L["Users"]">
+    <Breadcrumb>
+        <Breadcrumb>
+            @foreach(BreadcrumbItem breadcrumbItem in BreadcrumbItems)
+            {
+            @breadcrumbItem.BreadCrumb
+            }
+        </Breadcrumb>
+    </Breadcrumb>
+    
+    <ChildContent>
+        <Card>
+            @if (HasCreatePermission)
+            {
+                <Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Plus" OnClick="OpenCreateModalAsync">@L["NewUser"]</Button>
+            }
+            @* ************************* DATA GRID ************************* *@
+            <Table TItem="IdentityUserDto" DataSource="Entities" @bind-PageIndex="CurrentPage" @bind-PageSize="PageSize" Total="TotalCount ?? 0"
+                Loading="Loading" OnChange="SearchEntitiesAsync" RemoteDataSource>
+                <Column Title="@L["UserName"]" @bind-Field="@context.UserName"></Column>
+                <ActionColumn Title="@L["Action"]">
+                    <Space Size=@("middle")>
+                        @if (HasUpdatePermission)
+                        {
+                            <SpaceItem>
+                                <Button Type="@ButtonType.Link" OnClick="() => OpenEditModalAsync(context)">@L["Edit"]</Button>
+                            </SpaceItem>
+                        }
+                        @if (HasManagePermissionsPermission)
+                        {
+                            <SpaceItem>
+                                <Button Type="@ButtonType.Link" OnClick="() => OpenPermissionModalAsync(context)">@L["Permissions"]</Button>
+                            </SpaceItem>
+                        }
+                        @if (HasDeletePermission)
+                        {
+                            <SpaceItem>
+                                <Popconfirm Title="@GetDeleteConfirmationMessage(context)"
+                                        OnConfirm="() => DeleteEntityAsync(context)"
+                                        OkText="Yes"
+                                        CancelText="No">
+                                        <Button Type="@ButtonType.Link">@L["Delete"]</Button>
+                                </Popconfirm>
+                            </SpaceItem>
+                        }
+                    </Space>
+                </ActionColumn>
+            </Table>
+        </Card>
+    </ChildContent>
+</PageContainer>
+
+@* ************************* CREATE MODAL ************************* *@
+@if (HasCreatePermission)
+{
+    <Modal Title="@L["NewUser"]" 
+        Visible="@ShowCreateModal" 
+        ConfirmLoading="@CreateModalConfirmLoading"
+        OnOk="()=>{ IdentityUserCreateForm.Submit(); }" 
+        OnCancel="@CloseCreateModalAsync">
+        <Form @ref="IdentityUserCreateForm" 
+            Model="@NewEntity" 
+            LabelColSpan="4"
+            WrapperColSpan="20"
+            OnFinish="CreateEntityAsync">
+            <Tabs @bind-ActiveKey="@CreateModalSelectedTab" Animated>
+                <TabPane Tab="@L["UserInformations"]" Key="UserInformations">
+                    <FormItem Label="@L["DisplayName:UserName"]">
+                        <Input @bind-Value="@context.UserName" />
+                    </FormItem>
+                    <FormItem Label="@L["DisplayName:Name"]">
+                        <Input @bind-Value="@context.Name" />
+                    </FormItem>
+                    <FormItem Label=@L["DisplayName:Surname"]>
+                        <Input @bind-Value="@context.Surname" />
+                    </FormItem>
+                    <FormItem Label="@L["DisplayName:Password"]">
+                        <Input @bind-Value="@context.Password" />
+                    </FormItem>
+                    <FormItem Label=@L["DisplayName:Email"]>
+                        <Input @bind-Value="@context.Email" />
+                    </FormItem>
+                    <FormItem Label=@L["DisplayName:PhoneNumber"]>
+                        <Input @bind-Value="@context.PhoneNumber" />
+                    </FormItem>
+                    <FormItem WrapperColOffset="4" WrapperColSpan="20">
+                        <Checkbox @bind-Value="context.LockoutEnabled">@L["DisplayName:LockoutEnabled"]</Checkbox>
+                    </FormItem>
+                </TabPane>
+                <TabPane Tab="@L["Roles"]" Key="Roles">
+                    @if (NewUserRoles != null)
+                    {
+                        @foreach (var role in NewUserRoles)
+                        {
+                            <FormItem>
+                                <Input Type="hidden" @bind-Value="@role.Name" />
+                                <Checkbox @bind-Value="role.IsAssigned">@role.Name</Checkbox>
+                            </FormItem>
+                        }
+                    }
+                </TabPane>
+            </Tabs>
+        </Form>
+    </Modal>
+}
+
+@* ************************* EDIT MODAL ************************* *@
+@if ( HasUpdatePermission )
+    {
+        <Modal Title="@L["Edit"]" 
+            Visible="@ShowEditModal" 
+            ConfirmLoading="@EditModalConfirmLoading" 
+            OnOk="()=>{ IdentityUserEditForm.Submit(); }"  
+            OnCancel="@CloseEditModalAsync">
+            <Form @ref="IdentityUserEditForm" 
+                Model="@EditingEntity" 
+                LabelColSpan="4"
+                WrapperColSpan="20"
+                OnFinish="UpdateEntityAsync">
+                <Tabs @bind-ActiveKey="@EditModalSelectedTab" Animated>
+                    <TabPane Tab="@L["UserInformations"]" Key="UserInformations">
+                        <FormItem Label="@L["DisplayName:UserName"]">
+                            <Input @bind-Value="@context.UserName" />
+                        </FormItem>
+                        <FormItem Label="@L["DisplayName:Name"]">
+                            <Input @bind-Value="@context.Name" />
+                        </FormItem>
+                        <FormItem Label=@L["DisplayName:Surname"]>
+                            <Input @bind-Value="@context.Surname" />
+                        </FormItem>
+                        <FormItem Label="@L["DisplayName:Password"]">
+                            <Input @bind-Value="@context.Password" />
+                        </FormItem>
+                        <FormItem Label=@L["DisplayName:Email"]>
+                            <Input @bind-Value="@context.Email" />
+                        </FormItem>
+                        <FormItem Label=@L["DisplayName:PhoneNumber"]>
+                            <Input @bind-Value="@context.PhoneNumber" />
+                        </FormItem>
+                        <FormItem WrapperColOffset="4" WrapperColSpan="20">
+                            <Checkbox @bind-Value="context.LockoutEnabled">@L["DisplayName:LockoutEnabled"]</Checkbox>
+                        </FormItem>
+                    </TabPane>
+                    <TabPane Tab="@L["Roles"]" Key="Roles">
+                        @if (EditUserRoles != null)
+                        {
+                            @foreach (var role in EditUserRoles)
+                            {
+                                <FormItem>
+                                    <Input Type="hidden" @bind-Value="@role.Name" />
+                                    <Checkbox @bind-Value="role.IsAssigned">@role.Name</Checkbox>
+                                </FormItem>
+                            }
+                        }
+                    </TabPane>
+                </Tabs>
+            </Form>
+        </Modal>
+    }
+
+@if ( HasManagePermissionsPermission )
+{
+    <PermissionManagementModal @ref="PermissionManagementModal"/>
+}

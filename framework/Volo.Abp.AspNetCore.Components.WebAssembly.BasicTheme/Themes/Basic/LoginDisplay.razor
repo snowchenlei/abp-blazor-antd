@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.Users
+@using Volo.Abp.MultiTenancy
+@using global::Localization.Resources.AbpUi
+@inject ICurrentUser CurrentUser
+@inject ICurrentTenant CurrentTenant
+@inject IJSRuntime JsRuntime
+@inject NavigationManager Navigation
+@inject SignOutSessionStateManager SignOutManager
+@inject IStringLocalizer<AbpUiResource> UiLocalizer
+<AuthorizeView>
+    <Authorized>
+        <Dropdown Placement="Placement.BottomRight">
+            <Overlay>
+                <Menu>
+                    @foreach (var avatarItem in Menu.Items)
+                    {
+                        @*if (avatarItem.IsDivider)
+                            {
+                                <MenuDivider />
+                            }
+                            else*@
+                        {
+                            <MenuItem Key="@avatarItem.ElementId" RouterLink="@avatarItem.Url">
+                                @*<Icon Type="@avatarItem.IconType" Theme="@avatarItem.IconTheme" />*@
+                                @avatarItem.DisplayName
+                            </MenuItem>
+                        }
+                    }
+                    <MenuItem Key="Logout" RouterLink="BeginSignOut">
+                        @*<Icon Type="@avatarItem.IconType" Theme="@avatarItem.IconTheme" />*@
+                        @UiLocalizer["Logout"]
+                    </MenuItem>
+                </Menu>
+            </Overlay>
+            <Unbound Context="ddContext">
+                <span class="ant-dropdown-trigger aab-components-right-content-index-action aab-components-right-content-index-account" @ref="@ddContext.Current" @onclick:preventDefault>
+                    @*<Avatar Size="small" Class="avatar aab-components-right-content-index-avatar" Src="@AccountInfoModal.Logo" Alt="avatar"/>*@
+                    <span class="aab-components-right-content-index-name anticon">@CurrentUser.UserName</span>
+                </span>
+            </Unbound>
+        </Dropdown>
+    </Authorized>
+    <NotAuthorized>
+        <a class="nav-link" href="authentication/login">@UiLocalizer["Login"]</a>
+    </NotAuthorized>
+</AuthorizeView>
+@code{
+
+    private async Task NavigateToAsync(string uri, string target = null)
+    {
+        if (target == "_blank")
+        {
+            await JsRuntime.InvokeVoidAsync("open", uri, target);
+        }
+        else
+        {
+            Navigation.NavigateTo(uri);
+        }
+    }
+
+    private async Task BeginSignOut()
+    {
+        await SignOutManager.SetSignOutState();
+        await NavigateToAsync("authentication/logout");
+    }
+}
