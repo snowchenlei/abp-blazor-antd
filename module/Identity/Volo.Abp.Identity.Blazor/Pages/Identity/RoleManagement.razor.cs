@@ -50,7 +50,7 @@ namespace Volo.Abp.Identity.Blazor.Pages.Identity
 
         protected async Task OpenPermissionModalAsync(IdentityRoleDto entity)
         {
-            await PermissionManagementModal.OpenAsync(PermissionProviderName, entity.Id.ToString());
+            await PermissionManagementModal.OpenAsync(PermissionProviderName, entity.Name.ToString());
         }
 
         protected override Task OnCreatingEntityAsync()

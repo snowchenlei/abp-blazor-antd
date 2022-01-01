@@ -20,9 +20,9 @@
             </Tabs>
         }
     </Form>*@
-    @*@if (_groups != null)
+    @if (_groups != null)
     {
-        <Tabs TabPosition="TabPosition.Left" Pills="true" @bind-SelectedTab="@_selectedTabName">
+        <Tabs TabPosition="TabPosition.Left" @bind-ActiveKey="@_selectedTabName">
             @foreach (var group in _groups)
             {
                 <TabPane Key="@group.Name">
@@ -49,18 +49,21 @@
                         </Checkbox>
                         <Divider />
 
+                        <Space Direction="DirectionVHType.Vertical">
                         @foreach (var permission in group.Permissions)
                         {
-
-                            <Checkbox Checked="@permission.IsGranted"
-                          Disabled="@(IsDisabledPermission(permission))"
-                          CheckedChanged="@(b => PermissionChanged(b, group, permission))">
-                                @GetShownName(permission)
-                            </Checkbox>
+                            <SpaceItem>
+                                <Checkbox Style="@(permission.ParentName != null ? "margin-left: 10px":"")" Checked="@permission.IsGranted"
+                                    Disabled="@(IsDisabledPermission(permission))"
+                                    CheckedChanged="@(b => PermissionChanged(b, group, permission))">
+                                    @GetShownName(permission)
+                                </Checkbox>
+                            </SpaceItem>
                         }
+                        </Space>
                     </ChildContent>
                 </TabPane>
             }
         </Tabs>
-    }*@
+    }
 </Modal>
