@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\framework\Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme\Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme.csproj" />
-    <ProjectReference Include="..\..\..\module\Identity\Volo.Abp.Identity.Blazor.WebAssembly\Volo.Abp.Identity.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="..\..\..\module\identity\Volo.Abp.Identity.Blazor.WebAssembly\Volo.Abp.Identity.Blazor.WebAssembly.csproj" />
     <ProjectReference Include="..\..\src\Acme.BookStore.HttpApi.Client\Acme.BookStore.HttpApi.Client.csproj" />
   </ItemGroup>
 

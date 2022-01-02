@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\PermissionManagement\Volo.Abp.PermissionManagement.Blazor\Volo.Abp.PermissionManagement.Blazor.csproj" />
+    <ProjectReference Include="..\..\permission-management\Volo.Abp.PermissionManagement.Blazor\Volo.Abp.PermissionManagement.Blazor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
