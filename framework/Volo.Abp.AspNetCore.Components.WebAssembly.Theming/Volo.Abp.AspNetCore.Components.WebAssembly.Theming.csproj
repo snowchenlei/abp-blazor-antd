@@ -5,6 +5,13 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+		<PackageId>Snow.ABA.AspNetCore.Components.WebAssembly.Theming</PackageId>
+		<Authors>Snow</Authors>
+		<Product>$(PackageId)</Product>
+		<Version>0.1.0</Version>
+		<PackageProjectUrl />
+		<Description>abp blazorUi antd extension</Description>
+		<RepositoryUrl>https://github.com/snowchenlei/abp-blazor-antd</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

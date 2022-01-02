@@ -5,6 +5,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Acme.BookStore</RootNamespace>
+	  <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

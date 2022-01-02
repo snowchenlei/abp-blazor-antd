@@ -1,7 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<PackageId>Snow.ABA.PermissionManagement.Blazor.WebAssembly</PackageId>
+	<Authors>Snow</Authors>
+	<Product>$(PackageId)</Product>
+	<Version>0.1.0</Version>
+	<PackageProjectUrl />
+	<RepositoryUrl>https://github.com/snowchenlei/abp-blazor-antd</RepositoryUrl>
+	<Description>abp blazorUi antd extension</Description>
   </PropertyGroup>
 
   <ItemGroup>
