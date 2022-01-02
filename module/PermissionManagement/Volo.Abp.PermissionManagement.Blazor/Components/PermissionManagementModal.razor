@@ -3,23 +3,14 @@
 @inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
 
 <Modal Title="@($"{L["Permissions"]} - {_entityDisplayName}")"
+       OnOk="SaveAsync"
        Visible="_showPermissionModal"
        OnCancel="@CloseModal">
+        <Checkbox @bind-Value="@GrantAll"
+             Indeterminate="@(_groups.Sum(o => o.Permissions.Count(p=>p.IsGranted)) > 0 
+                           && _groups.Sum(o => o.Permissions.Count(o => o.IsGranted)) < _groups.Sum(o => o.Permissions.Count()))">@L["SelectAllInAllTabs"]</Checkbox>
 
-    @*<Form>
-        <FormItem Label="@L["DisplayName:UserName"]">
-            <Checkbox @bind-Checked="GrantAll" Disabled="@disabled">@L["SelectAllInAllTabs"]</Checkbox>
-        </FormItem>
-        <Divider />
-        @if (_groups != null)
-        {
-            <Tabs @bind-ActiveKey="@CreateModalSelectedTab" Animated>
-                <TabPane Tab="@L["UserInformations"]" Key="UserInformations">
-
-                </TabPane>
-            </Tabs>
-        }
-    </Form>*@
+    <Divider />
     @if (_groups != null)
     {
         <Tabs TabPosition="TabPosition.Left" @bind-ActiveKey="@_selectedTabName">
@@ -43,8 +34,10 @@
                     <ChildContent>
                         <h4>@group.DisplayName</h4>
                         <Divider />
-                        <Checkbox Checked="@(group.Permissions.All(x => x.IsGranted))"
-                          CheckedChanged="@(b=>GroupGrantAllChanged(b, group))">
+                        <Checkbox Indeterminate="@(group.Permissions.Count(o => o.IsGranted) > 0
+                                                && group.Permissions.Count(o => o.IsGranted) < group.Permissions.Count())"
+                          Checked="@(group.Permissions.All(x => x.IsGranted))"
+                          ValueChanged="@(b=>GroupGrantAllChanged(b, group))">
                             @L["SelectAllInThisTab"]
                         </Checkbox>
                         <Divider />

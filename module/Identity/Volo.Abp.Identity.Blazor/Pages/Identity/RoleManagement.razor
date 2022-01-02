@@ -48,8 +48,8 @@
                             <SpaceItem>
                                 <Popconfirm Title="@GetDeleteConfirmationMessage(context)"
                                         OnConfirm="async () => await DeleteEntityAsync(context)"
-                                        OkText="Yes"
-                                        CancelText="No">
+                                        OkText="@L["Yes"]"
+                                        CancelText="@L["No"]">
                                     <Button Type="@ButtonType.Link">@L["Delete"]</Button>
                                 </Popconfirm>
                             </SpaceItem>
