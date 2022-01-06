@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Volo.Abp.AspNetCore.Components.Messages;
 using Volo.Abp.DependencyInjection;
 
-namespace Volo.Abp.AntdBlazorUI
+namespace Snow.Aba.AntdBlazorUI
 {
     [Dependency(ReplaceServices = true)]
     public class AntdBlazorUiMessageService : IUiMessageService, IScopedDependency

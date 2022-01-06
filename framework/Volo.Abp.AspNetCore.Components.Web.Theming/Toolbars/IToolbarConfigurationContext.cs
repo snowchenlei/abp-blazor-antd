@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
 using Volo.Abp.DependencyInjection;
 
-namespace Volo.Abp.AspNetCore.Components.Web.Theming.Toolbars
+namespace Snow.Aba.AspNetCore.Components.Web.Theming.Toolbars
 {
     public interface IToolbarConfigurationContext : IServiceProviderAccessor
     {

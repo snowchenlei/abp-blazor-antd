@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace Volo.Abp.Identity.Blazor.Pages.Identity
+namespace Snow.Aba.Identity.Blazor.Pages.Identity
 {
     public partial class RoleNameComponent : ComponentBase
     {

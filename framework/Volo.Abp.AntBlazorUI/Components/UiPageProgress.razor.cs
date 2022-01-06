@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.AspNetCore.Components.Progression;
 
-namespace Volo.Abp.AntdBlazorUI.Components
+namespace Snow.Aba.AntdBlazorUI.Components
 {
     public partial class UiPageProgress : ComponentBase, IDisposable
     {

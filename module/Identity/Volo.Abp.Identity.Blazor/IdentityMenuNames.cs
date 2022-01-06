@@ -1,4 +1,4 @@
-﻿namespace Volo.Abp.Identity.Blazor
+﻿namespace Snow.Aba.Identity.Blazor
 {
     public class IdentityMenuNames
     {

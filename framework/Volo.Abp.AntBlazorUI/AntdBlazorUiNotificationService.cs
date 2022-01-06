@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Volo.Abp.AspNetCore.Components.Notifications;
 using Volo.Abp.DependencyInjection;
 
-namespace Volo.Abp.AntdBlazorUI
+namespace Snow.Aba.AntdBlazorUI
 {
     [Dependency(ReplaceServices = true)]
 

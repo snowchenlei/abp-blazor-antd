@@ -1,15 +1,15 @@
-﻿using Volo.Abp.AntdBlazorUI;
+﻿using Snow.Aba.AntdBlazorUI;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 
-namespace Volo.Abp.AspNetCore.Components.Web.Theming
+namespace Snow.Aba.AspNetCore.Components.Web.Theming
 {
     [DependsOn(
-        typeof(AbpAntdBlazorUIModule),
+        typeof(AabAntdBlazorUIModule),
         typeof(AbpUiNavigationModule)
         )]
     public class AbpAspNetCoreComponentsWebThemingModule : AbpModule
     {
-        
+
     }
 }

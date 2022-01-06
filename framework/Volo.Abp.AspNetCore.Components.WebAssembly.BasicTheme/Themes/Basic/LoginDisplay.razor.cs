@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Routing;
 using Volo.Abp.UI.Navigation;
 
-namespace Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme.Themes.Basic
+namespace Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme.Themes.Basic
 {
     public partial class LoginDisplay : IDisposable
     {

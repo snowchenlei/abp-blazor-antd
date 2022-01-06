@@ -3,7 +3,7 @@ using AntDesign;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
-namespace Volo.Abp.AspNetCore.Components.Web.BasicTheme.Themes.Basic
+namespace Snow.Aba.AspNetCore.Components.Web.BasicTheme.Themes.Basic
 {
     public partial class MainLayout : IDisposable
     {

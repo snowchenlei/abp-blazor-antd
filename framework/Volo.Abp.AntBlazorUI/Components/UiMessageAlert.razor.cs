@@ -1,5 +1,6 @@
 ﻿using AntDesign;
 using Microsoft.AspNetCore.Components;
+using Snow.Aba.AntdBlazorUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.AspNetCore.Components.Messages;
 
-namespace Volo.Abp.AntdBlazorUI.Components
+namespace Snow.Aba.AntdBlazorUI.Components
 {
     public partial class UiMessageAlert : ComponentBase, IDisposable
     {
@@ -88,7 +89,7 @@ namespace Volo.Abp.AntdBlazorUI.Components
         {
             base.OnInitialized();
 
-            UiMessageService.MessageReceived += OnMessageReceived;            
+            UiMessageService.MessageReceived += OnMessageReceived;
         }
         private async void OnMessageReceived(object sender, UiMessageEventArgs e)
         {
@@ -107,7 +108,7 @@ namespace Volo.Abp.AntdBlazorUI.Components
                 {
                     await OnConfirmClicked();
                 }
-                else if(confirmResult == ConfirmResult.Cancel)
+                else if (confirmResult == ConfirmResult.Cancel)
                 {
                     await OnCancelClicked();
                 }
@@ -131,7 +132,7 @@ namespace Volo.Abp.AntdBlazorUI.Components
         protected async Task OnOkClickedAsync()
         {
             await InvokeAsync(async () =>
-            { 
+            {
                 await Okayed.InvokeAsync(null);
             });
         }

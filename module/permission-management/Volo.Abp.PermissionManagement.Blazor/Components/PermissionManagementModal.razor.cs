@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using AntDesign;
 using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components;
+using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Localization;
 
-namespace Volo.Abp.PermissionManagement.Blazor.Components
+namespace Snow.Aba.PermissionManagement.Blazor.Components
 {
     public partial class PermissionManagementModal
     {
@@ -76,7 +77,7 @@ namespace Volo.Abp.PermissionManagement.Blazor.Components
         }
 
 
-        [Inject]public ModalService _modalService { get; set; }
+        [Inject] public ModalService _modalService { get; set; }
         public async Task OpenAsync(string providerName, string providerKey, string entityDisplayName = null)
         {
             try
@@ -112,7 +113,7 @@ namespace Volo.Abp.PermissionManagement.Blazor.Components
                 _selectedTabName = GetNormalizedGroupName(_groups.First().Name);
 
                 _showPermissionModal = true;
-                await InvokeAsync(new Action(base.StateHasChanged));
+                await InvokeAsync(new Action(StateHasChanged));
             }
             catch (Exception ex)
             {

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Volo.Abp.AspNetCore.Components.Web.Theming.Toolbars;
+using Snow.Aba.AspNetCore.Components.Web.Theming.Toolbars;
 
-namespace Volo.Abp.AspNetCore.Components.Web.BasicTheme.Themes.Basic
+namespace Snow.Aba.AspNetCore.Components.Web.BasicTheme.Themes.Basic
 {
-    public partial class NavToolbar
+    public partial class NavToolbar:ComponentBase
     {
         [Inject]
         private IToolbarManager ToolbarManager { get; set; }

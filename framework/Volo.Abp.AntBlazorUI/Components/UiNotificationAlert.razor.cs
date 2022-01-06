@@ -1,6 +1,7 @@
 ﻿using AntDesign;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
+using Snow.Aba.AntdBlazorUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.AspNetCore.Components.Notifications;
 
-namespace Volo.Abp.AntdBlazorUI.Components
+namespace Snow.Aba.AntdBlazorUI.Components
 {
     public partial class UiNotificationAlert : ComponentBase, IDisposable
     {

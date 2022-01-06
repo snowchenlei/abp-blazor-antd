@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using AntDesign;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
+using Snow.Aba.PermissionManagement.Blazor.Components;
+using Volo.Abp.Identity;
 using Volo.Abp.Identity.Localization;
-using Volo.Abp.PermissionManagement.Blazor.Components;
 
-namespace Volo.Abp.Identity.Blazor.Pages.Identity
+namespace Snow.Aba.Identity.Blazor.Pages.Identity
 {
     public partial class RoleManagement
     {
@@ -36,7 +37,7 @@ namespace Volo.Abp.Identity.Blazor.Pages.Identity
             CreatePolicyName = IdentityPermissions.Roles.Create;
             UpdatePolicyName = IdentityPermissions.Roles.Update;
             DeletePolicyName = IdentityPermissions.Roles.Delete;
-            ObjectMapperContext = typeof(AbpIdentityBlazorModule);
+            ObjectMapperContext = typeof(AbaIdentityBlazorModule);
             LocalizationResource = typeof(IdentityResource);
         }
 

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Volo.Abp.UI.Navigation;
 
-namespace Volo.Abp.AspNetCore.Components.Web.BasicTheme.Themes.Basic
+namespace Snow.Aba.AspNetCore.Components.Web.BasicTheme.Themes.Basic
 {
-    public partial class FirstLevelNavMenuItem : IDisposable
+    public partial class FirstLevelNavMenuItem : ComponentBase, IDisposable
     {
         [Inject] private NavigationManager NavigationManager { get; set; }
 

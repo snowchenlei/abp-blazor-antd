@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using AntDesign;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
+using Snow.Aba.PermissionManagement.Blazor.Components;
+using Volo.Abp.Identity;
 using Volo.Abp.Identity.Localization;
-using Volo.Abp.PermissionManagement.Blazor.Components;
 
-namespace Volo.Abp.Identity.Blazor.Pages.Identity
+namespace Snow.Aba.Identity.Blazor.Pages.Identity
 {
-    public partial class UserManagement 
+    public partial class UserManagement
     {
         [Inject] protected IIdentityUserAppService IdentityUserAppService { get; set; }
         protected const string PermissionProviderName = "U";
@@ -48,12 +49,12 @@ namespace Volo.Abp.Identity.Blazor.Pages.Identity
             CreatePolicyName = IdentityPermissions.Users.Create;
             UpdatePolicyName = IdentityPermissions.Users.Update;
             DeletePolicyName = IdentityPermissions.Users.Delete;
-            ObjectMapperContext = typeof(AbpIdentityBlazorModule);
+            ObjectMapperContext = typeof(AbaIdentityBlazorModule);
             LocalizationResource = typeof(IdentityResource);
         }
 
         protected override async Task OnInitializedAsync()
-        {
+        {            
             await base.OnInitializedAsync();
 
             try
@@ -120,7 +121,7 @@ namespace Volo.Abp.Identity.Blazor.Pages.Identity
 
             // apply roles before saving
             NewEntity.RoleNames = NewUserRoles.Where(x => x.IsAssigned).Select(x => x.Name).ToArray();
-            
+
             return Task.CompletedTask;
         }
 
