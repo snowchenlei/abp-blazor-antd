@@ -1,4 +1,4 @@
-﻿namespace Volo.Abp.SettingManagement.Blazor.Menus
+﻿namespace Snow.Aba.SettingManagement.Blazor.Menus
 {
     public class SettingManagementMenus
     {

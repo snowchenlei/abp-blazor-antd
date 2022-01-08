@@ -4,7 +4,7 @@ using Volo.Abp.Modularity;
 namespace Snow.Aba.AspNetCore.Components.Web.BasicTheme
 {
     [DependsOn(
-        typeof(AbpAspNetCoreComponentsWebThemingModule)
+        typeof(AbaAspNetCoreComponentsWebThemingModule)
         )]
     public class AbaAspNetCoreComponentsWebBasicThemeModule : AbpModule
     {

@@ -1,11 +1,13 @@
-﻿using Volo.Abp.AspNetCore.Components.WebAssembly.Theming;
+﻿using Snow.Aba.AspNetCore.Components.WebAssembly.Theming;
 using Volo.Abp.Modularity;
+using Volo.Abp.SettingManagement;
+using Volo.Abp.SettingManagement.Blazor;
 
-namespace Volo.Abp.SettingManagement.Blazor.WebAssembly
+namespace Snow.Aba.SettingManagement.Blazor.WebAssembly
 {
     [DependsOn(
         typeof(AbpSettingManagementBlazorModule),
-        typeof(AbpAspNetCoreComponentsWebAssemblyThemingModule),
+        typeof(AbaAspNetCoreComponentsWebAssemblyThemingModule),
         typeof(AbpSettingManagementHttpApiClientModule)
     )]
     public class AbpSettingManagementBlazorWebAssemblyModule : AbpModule

@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Snow.Aba.SettingManagement.Blazor;
+using Volo.Abp.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Messages;
 using Volo.Abp.AspNetCore.Components.Web.Configuration;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.SettingManagement.Localization;
 
-namespace Volo.Abp.SettingManagement.Blazor.Pages.SettingManagement.EmailSettingGroup
+namespace Snow.Aba.SettingManagement.Blazor.Pages.SettingManagement.EmailSettingGroup
 {
-    public partial class EmailSettingGroupViewComponent
+    public partial class EmailSettingGroupViewComponent: AbpComponentBase
     {
         [Inject]
         protected IEmailSettingsAppService EmailSettingsAppService { get; set; }
-        
+
         [Inject]
         private ICurrentApplicationConfigurationCacheResetService CurrentApplicationConfigurationCacheResetService { get; set; }
 
@@ -22,10 +25,10 @@ namespace Volo.Abp.SettingManagement.Blazor.Pages.SettingManagement.EmailSetting
 
         public EmailSettingGroupViewComponent()
         {
-            ObjectMapperContext = typeof(AbpSettingManagementBlazorModule);
+            ObjectMapperContext = typeof(AbaSettingManagementBlazorModule);
             LocalizationResource = typeof(AbpSettingManagementResource);
         }
-        
+
         protected override async Task OnInitializedAsync()
         {
             try
@@ -43,7 +46,7 @@ namespace Volo.Abp.SettingManagement.Blazor.Pages.SettingManagement.EmailSetting
             try
             {
                 await EmailSettingsAppService.UpdateAsync(ObjectMapper.Map<EmailSettingsDto, UpdateEmailSettingsDto>(EmailSettings));
-                
+
                 await CurrentApplicationConfigurationCacheResetService.ResetAsync();
 
                 await UiMessageService.Success(L["SuccessfullySaved"]);

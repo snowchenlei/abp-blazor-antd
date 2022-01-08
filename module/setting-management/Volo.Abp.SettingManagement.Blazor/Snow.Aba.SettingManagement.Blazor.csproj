@@ -5,7 +5,6 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>Volo.Abp.SettingManagement.Blazor</RootNamespace>
 		<PackageId>Snow.ABA.SettingManagement.Blazor</PackageId>
 		<Authors>Snow</Authors>
 		<Product>$(PackageId)</Product>
@@ -16,15 +15,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Pages\SettingManagement\EmailSettingGroup\**" />
+      <Content Remove="Pages\SettingManagement\EmailSettingGroup\**" />
+      <EmbeddedResource Remove="Pages\SettingManagement\EmailSettingGroup\**" />
+      <None Remove="Pages\SettingManagement\EmailSettingGroup\**" />
+    </ItemGroup>
+
+    <ItemGroup>
 		<PackageReference Include="Volo.Abp.AutoMapper" Version="5.0.0" />
 		<PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\framework\Volo.Abp.AspNetCore.Components.Web.Theming\Volo.Abp.AspNetCore.Components.Web.Theming.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Include="Pages\SettingManagement\EmailSettingGroup\EmailSettingGroupViewComponent.razor" />
+      <ProjectReference Include="..\..\..\framework\Volo.Abp.AspNetCore.Components.Web.Theming\Snow.Aba.AspNetCore.Components.Web.Theming.csproj" />
     </ItemGroup>
 </Project>

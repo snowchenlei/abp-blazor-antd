@@ -2,14 +2,16 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
+using Snow.Aba.SettingManagement.Blazor.Pages.SettingManagement.EmailSettingGroup;
 using Volo.Abp.Features;
 using Volo.Abp.MultiTenancy;
-using Volo.Abp.SettingManagement.Blazor.Pages.SettingManagement.EmailSettingGroup;
+using Volo.Abp.SettingManagement;
+using Volo.Abp.SettingManagement.Blazor;
 using Volo.Abp.SettingManagement.Localization;
 
-namespace Volo.Abp.SettingManagement.Blazor.Settings
+namespace Snow.Aba.SettingManagement.Blazor.Settings
 {
-    public class EmailingPageContributor: ISettingComponentContributor
+    public class EmailingPageContributor : ISettingComponentContributor
     {
         public async Task ConfigureAsync(SettingComponentCreationContext context)
         {

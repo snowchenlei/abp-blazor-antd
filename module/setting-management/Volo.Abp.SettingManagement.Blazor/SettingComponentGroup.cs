@@ -1,7 +1,8 @@
 ﻿using System;
 using JetBrains.Annotations;
+using Volo.Abp;
 
-namespace Volo.Abp.SettingManagement.Blazor
+namespace Snow.Aba.SettingManagement.Blazor
 {
     public class SettingComponentGroup
     {

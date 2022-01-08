@@ -6,7 +6,7 @@ using Volo.Abp.PermissionManagement;
 namespace Snow.Aba.PermissionManagement.Blazor
 {
     [DependsOn(
-        typeof(AbpAspNetCoreComponentsWebThemingModule),
+        typeof(AbaAspNetCoreComponentsWebThemingModule),
         typeof(AbpAutoMapperModule),
         typeof(AbpPermissionManagementApplicationContractsModule)
         )]

@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Volo.Abp.Features;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.SettingManagement.Localization;
 using Volo.Abp.UI.Navigation;
 
-namespace Volo.Abp.SettingManagement.Blazor.Menus
+namespace Snow.Aba.SettingManagement.Blazor.Menus
 {
     public class SettingManagementMenuContributor : IMenuContributor
     {
@@ -23,7 +24,7 @@ namespace Volo.Abp.SettingManagement.Blazor.Menus
             var settingManagementPageOptions = context.ServiceProvider.GetRequiredService<IOptions<SettingManagementComponentOptions>>().Value;
             var settingPageCreationContext = new SettingComponentCreationContext(context.ServiceProvider);
             if (!settingManagementPageOptions.Contributors.Any() ||
-                !(await CheckAnyOfPagePermissionsGranted(settingManagementPageOptions, settingPageCreationContext))
+                !await CheckAnyOfPagePermissionsGranted(settingManagementPageOptions, settingPageCreationContext)
             )
             {
                 return;

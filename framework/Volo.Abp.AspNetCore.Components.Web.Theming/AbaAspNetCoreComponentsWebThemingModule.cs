@@ -8,7 +8,7 @@ namespace Snow.Aba.AspNetCore.Components.Web.Theming
         typeof(AabAntdBlazorUIModule),
         typeof(AbpUiNavigationModule)
         )]
-    public class AbpAspNetCoreComponentsWebThemingModule : AbpModule
+    public class AbaAspNetCoreComponentsWebThemingModule : AbpModule
     {
 
     }

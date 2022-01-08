@@ -1,24 +1,26 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Volo.Abp.AspNetCore.Components.Web.Theming;
-using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
+using Snow.Aba.AspNetCore.Components.Web.Theming;
+using Snow.Aba.AspNetCore.Components.Web.Theming.Routing;
+using Snow.Aba.SettingManagement.Blazor.Menus;
+using Snow.Aba.SettingManagement.Blazor.Settings;
+using Volo.Abp;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
-using Volo.Abp.SettingManagement.Blazor.Menus;
-using Volo.Abp.SettingManagement.Blazor.Settings;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.UI.Navigation;
 
-namespace Volo.Abp.SettingManagement.Blazor
+namespace Snow.Aba.SettingManagement.Blazor
 {
     [DependsOn(
         typeof(AbpAutoMapperModule),
-        typeof(AbpAspNetCoreComponentsWebThemingModule),
+        typeof(AbaAspNetCoreComponentsWebThemingModule),
         typeof(AbpSettingManagementApplicationContractsModule)
     )]
-    public class AbpSettingManagementBlazorModule : AbpModule
+    public class AbaSettingManagementBlazorModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            context.Services.AddAutoMapperObjectMapper<AbpSettingManagementBlazorModule>();
+            context.Services.AddAutoMapperObjectMapper<AbaSettingManagementBlazorModule>();
 
             Configure<AbpAutoMapperOptions>(options =>
             {
@@ -32,7 +34,7 @@ namespace Volo.Abp.SettingManagement.Blazor
 
             Configure<AbpRouterOptions>(options =>
             {
-                options.AdditionalAssemblies.Add(typeof(AbpSettingManagementBlazorModule).Assembly);
+                options.AdditionalAssemblies.Add(typeof(AbaSettingManagementBlazorModule).Assembly);
             });
 
             Configure<SettingManagementComponentOptions>(options =>

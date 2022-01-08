@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Volo.Abp.DependencyInjection;
 
-namespace Volo.Abp.SettingManagement.Blazor
+namespace Snow.Aba.SettingManagement.Blazor
 {
     public class SettingComponentCreationContext : IServiceProviderAccessor
     {

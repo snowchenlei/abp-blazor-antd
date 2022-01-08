@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
+using Volo.Abp.SettingManagement;
 
-namespace Volo.Abp.SettingManagement.Blazor
+namespace Snow.Aba.SettingManagement.Blazor
 {
     public class SettingManagementBlazorAutoMapperProfile : Profile
     {

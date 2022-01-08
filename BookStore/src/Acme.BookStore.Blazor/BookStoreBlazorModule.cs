@@ -23,9 +23,9 @@ namespace Acme.BookStore.Blazor
         typeof(AbpAutofacWebAssemblyModule),
         typeof(BookStoreHttpApiClientModule),
         typeof(AbpAspNetCoreComponentsWebAssemblyBasicThemeModule),
-        typeof(AbaIdentityBlazorWebAssemblyModule)
+        typeof(AbaIdentityBlazorWebAssemblyModule),
     //typeof(AbpTenantManagementBlazorWebAssemblyModule),
-    //typeof(AbpSettingManagementBlazorWebAssemblyModule)
+    typeof(AbpSettingManagementBlazorWebAssemblyModule)
     )]
     public class BookStoreBlazorModule : AbpModule
     {

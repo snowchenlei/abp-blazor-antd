@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Volo.Abp.SettingManagement.Blazor
+namespace Snow.Aba.SettingManagement.Blazor
 {
     public interface ISettingComponentContributor
     {

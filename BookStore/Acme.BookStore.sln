@@ -59,9 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.PermissionManageme
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "setting-management", "setting-management", "{76A4AC44-A934-4BB2-A80C-9BFBD17F98AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.SettingManagement.Blazor", "..\module\setting-management\Volo.Abp.SettingManagement.Blazor\Volo.Abp.SettingManagement.Blazor.csproj", "{1FCDA742-13B5-4DB4-9221-882A60110AD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.SettingManagement.Blazor", "..\module\setting-management\Volo.Abp.SettingManagement.Blazor\Snow.Aba.SettingManagement.Blazor.csproj", "{1FCDA742-13B5-4DB4-9221-882A60110AD2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.SettingManagement.Blazor.WebAssembly", "..\module\setting-management\Volo.Abp.SettingManagement.Blazor.WebAssembly\Volo.Abp.SettingManagement.Blazor.WebAssembly.csproj", "{8D5432CE-C294-442B-8522-AB8991AD5A32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.SettingManagement.Blazor.WebAssembly", "..\module\setting-management\Volo.Abp.SettingManagement.Blazor.WebAssembly\Snow.Aba.SettingManagement.Blazor.WebAssembly.csproj", "{8D5432CE-C294-442B-8522-AB8991AD5A32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
