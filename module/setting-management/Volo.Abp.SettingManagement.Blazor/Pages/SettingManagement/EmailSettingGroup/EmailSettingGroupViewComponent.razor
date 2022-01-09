@@ -1,1 +1,47 @@
-﻿
+﻿@using Volo.Abp.SettingManagement.Localization
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+@inject AbpBlazorMessageLocalizerHelper<AbpSettingManagementResource> LH
+
+@if (EmailSettings != null)
+{
+    <Form
+      Model="@EmailSettings"
+      Layout="@FormLayout.Vertical"
+    OnFinish="UpdateSettingsAsync">
+        <FormItem Label="@L["DefaultFromDisplayName"]">
+            <Input @bind-Value="@EmailSettings.DefaultFromDisplayName" />
+        </FormItem>
+        <FormItem Label="@L["DefaultFromAddress"]">
+            <Input @bind-Value="@context.DefaultFromAddress" />
+        </FormItem>
+        <FormItem Label="@L["SmtpHost"]">
+            <Input @bind-Value="@context.SmtpHost" />
+        </FormItem>
+        <FormItem Label="@L["SmtpPort"]">
+            <Input @bind-Value="@context.SmtpPort" />
+        </FormItem>
+        <FormItem>
+            <Checkbox @bind-Value="context.SmtpEnableSsl">@L["SmtpEnableSsl"]</Checkbox>
+        </FormItem>
+        <FormItem>
+            <Checkbox @bind-Value="context.SmtpUseDefaultCredentials">@L["SmtpUseDefaultCredentials"]</Checkbox>
+        </FormItem>
+        @if (!EmailSettings.SmtpUseDefaultCredentials)
+    {
+        <FormItem Label="@L["SmtpDomain"]">
+            <Input @bind-Value="@context.SmtpDomain" />
+        </FormItem>
+        <FormItem Label="@L["SmtpUserName"]">
+            <Input @bind-Value="@context.SmtpUserName" />
+        </FormItem>
+        <FormItem Label="@L["SmtpPassword"]">
+            <Input @bind-Value="@context.SmtpPassword" />
+        </FormItem>
+    }
+    <FormItem>
+        <Button Type="@ButtonType.Primary" HtmlType="submit" >
+            <i class="fa fa-save"></i>@L["Submit"]
+        </Button>
+    </FormItem>
+</Form>
+}

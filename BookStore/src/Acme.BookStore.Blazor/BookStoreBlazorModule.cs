@@ -9,13 +9,13 @@ using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
-using Volo.Abp.SettingManagement.Blazor.WebAssembly;
 using Volo.Abp.TenantManagement.Blazor.WebAssembly;
 using Snow.Aba.AspNetCore.Components.Web.Theming.Routing;
 using Snow.Aba.AspNetCore.Components.Web.Theming.Toolbars;
 using Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme;
 using Snow.Aba.Identity.Blazor.WebAssembly;
 using Snow.Aba.AspNetCore.Components.Web.BasicTheme.Themes.Basic;
+using Snow.Aba.SettingManagement.Blazor.WebAssembly;
 
 namespace Acme.BookStore.Blazor
 {

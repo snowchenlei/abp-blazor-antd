@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Snow.Aba.SettingManagement.Blazor;
-using Volo.Abp.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Messages;
 using Volo.Abp.AspNetCore.Components.Web.Configuration;
 using Volo.Abp.SettingManagement;
@@ -10,7 +8,7 @@ using Volo.Abp.SettingManagement.Localization;
 
 namespace Snow.Aba.SettingManagement.Blazor.Pages.SettingManagement.EmailSettingGroup
 {
-    public partial class EmailSettingGroupViewComponent: AbpComponentBase
+    public partial class EmailSettingGroupViewComponent
     {
         [Inject]
         protected IEmailSettingsAppService EmailSettingsAppService { get; set; }

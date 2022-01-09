@@ -3,7 +3,6 @@ using Snow.Aba.AspNetCore.Components.Web.Theming;
 using Snow.Aba.AspNetCore.Components.Web.Theming.Routing;
 using Snow.Aba.SettingManagement.Blazor.Menus;
 using Snow.Aba.SettingManagement.Blazor.Settings;
-using Volo.Abp;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.SettingManagement;

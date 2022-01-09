@@ -15,10 +15,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Pages\SettingManagement\EmailSettingGroup\**" />
-      <Content Remove="Pages\SettingManagement\EmailSettingGroup\**" />
-      <EmbeddedResource Remove="Pages\SettingManagement\EmailSettingGroup\**" />
-      <None Remove="Pages\SettingManagement\EmailSettingGroup\**" />
+      <None Include="Pages\SettingManagement\EmailSettingGroup\EmailSettingGroupViewComponent.razor" />
     </ItemGroup>
 
     <ItemGroup>

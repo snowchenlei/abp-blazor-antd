@@ -4,39 +4,24 @@
 @attribute [RequiresFeature(SettingManagementFeatures.Enable)]
 
 @* ************************* PAGE HEADER ************************* *@
-@*<PageHeader Title="@L["Settings"]" BreadcrumbItems="@BreadcrumbItems">
+<PageHeader Class="site-page-header" Title="@L["Settings"]"></PageHeader>
+<div style="background-color: var(--bs-white); padding: 1rem;margin-top: 1rem;">
+    <Tabs @bind-ActiveKey="@SelectedGroup" TabPosition="TabPosition.Left">
+        @foreach (var group in SettingComponentCreationContext.Groups)
+        {
+            <TabPane Tab="@group.DisplayName" Key="@group.Id">
+                <h2>@group.DisplayName</h2>
+                <Divider />
+                @{
+                    SettingItemRenders.Add(builder =>
+                            {
+                                builder.OpenComponent(0, group.ComponentType);
+                                builder.CloseComponent();
+                            });
+                }
 
-</PageHeader>*@
-<PageHeader Class="site-page-header" Title="@L["Settings"]" Subtitle="This is a subtitle">
-    <PageHeaderBreadcrumb>
-        <Breadcrumb>
-            <BreadcrumbItem>First-level Menu</BreadcrumbItem>
-            <BreadcrumbItem>
-                <a>Second-level Menu</a>
-            </BreadcrumbItem>
-            <BreadcrumbItem>Third-level Menu</BreadcrumbItem>
-        </Breadcrumb>
-    </PageHeaderBreadcrumb>
-</PageHeader>
-<Card>
-    <Body>
-        <Tabs @bind-ActiveKey="@SelectedGroup" TabPosition="TabPosition.Left">
-            @foreach (var group in SettingComponentCreationContext.Groups)
-            {
-                <TabPane Tab="@group.DisplayName" Key="@group.Id">
-                    <h2>@group.DisplayName</h2>
-                    <Divider />
-                    @{
-                        SettingItemRenders.Add(builder =>
-                        {
-                            builder.OpenComponent(0, group.ComponentType);
-                            builder.CloseComponent();
-                        });
-                    }
-
-                    @SettingItemRenders.Last()
-                </TabPane>
-            }
-        </Tabs>
-    </Body>
-</Card>
+                @SettingItemRenders.Last()
+            </TabPane>
+        }
+    </Tabs>
+</div>

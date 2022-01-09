@@ -6,7 +6,6 @@ using Snow.Aba.SettingManagement.Blazor.Pages.SettingManagement.EmailSettingGrou
 using Volo.Abp.Features;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.SettingManagement;
-using Volo.Abp.SettingManagement.Blazor;
 using Volo.Abp.SettingManagement.Localization;
 
 namespace Snow.Aba.SettingManagement.Blazor.Settings
