@@ -9,7 +9,7 @@
 @using Volo.Abp.AspNetCore.Components
 @using Snow.Aba.AntdBlazorUI
 @inject AbpBlazorMessageLocalizerHelper<IdentityResource> LH
-@inherits AbpCrudPageBase<IIdentityUserAppService, IdentityUserDto, Guid, GetIdentityUsersInput, IdentityUserCreateDto, IdentityUserUpdateDto>
+@inherits AbaCrudPageBase<IIdentityUserAppService, IdentityUserDto, Guid, GetIdentityUsersInput, IdentityUserCreateDto, IdentityUserUpdateDto>
 
 <PageContainer Title="@L["Users"]">
     <Breadcrumb>

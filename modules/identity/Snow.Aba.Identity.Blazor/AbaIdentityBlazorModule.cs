@@ -16,7 +16,7 @@ namespace Snow.Aba.Identity.Blazor
         typeof(AbpIdentityApplicationContractsModule),
         typeof(AbpAutoMapperModule),
         typeof(AbaPermissionManagementBlazorModule),
-        typeof(AabAntdBlazorUIModule)
+        typeof(AbaAntdBlazorUIModule)
         )]
     public class AbaIdentityBlazorModule : AbpModule
     {

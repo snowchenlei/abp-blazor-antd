@@ -21,7 +21,6 @@ namespace Snow.Aba.Identity.Blazor.Pages.Identity
 
         protected const string DefaultSelectedTab = "UserInformations";
 
-
         protected IReadOnlyList<IdentityRoleDto> Roles;
         protected AssignedRoleViewModel[] NewUserRoles;
 
@@ -39,8 +38,7 @@ namespace Snow.Aba.Identity.Blazor.Pages.Identity
 
         protected Modal EditModal;
         protected bool Loading = false;
-        public bool CreateModalConfirmLoading { get; set; }
-        public bool EditModalConfirmLoading { get; set; }
+
 
 
         public UserManagement()

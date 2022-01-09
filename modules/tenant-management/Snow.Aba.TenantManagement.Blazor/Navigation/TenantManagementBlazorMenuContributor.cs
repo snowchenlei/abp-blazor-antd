@@ -3,7 +3,7 @@ using Volo.Abp.TenantManagement.Localization;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Authorization.Permissions;
 
-namespace Volo.Abp.TenantManagement.Blazor.Navigation
+namespace Snow.Aba.TenantManagement.Blazor.Navigation
 {
     public class TenantManagementBlazorMenuContributor : IMenuContributor
     {

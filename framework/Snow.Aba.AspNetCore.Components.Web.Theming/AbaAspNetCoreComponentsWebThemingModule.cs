@@ -5,7 +5,7 @@ using Volo.Abp.UI.Navigation;
 namespace Snow.Aba.AspNetCore.Components.Web.Theming
 {
     [DependsOn(
-        typeof(AabAntdBlazorUIModule),
+        typeof(AbaAntdBlazorUIModule),
         typeof(AbpUiNavigationModule)
         )]
     public class AbaAspNetCoreComponentsWebThemingModule : AbpModule

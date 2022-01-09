@@ -13,13 +13,14 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Blazor.WebAssembly" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\framework\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme.csproj" />
+    <ProjectReference Include="..\..\..\modules\feature-management\Snow.Aba.FeatureManagement.Blazor.WebAssembly\Snow.Aba.FeatureManagement.Blazor.WebAssembly.csproj" />
     <ProjectReference Include="..\..\..\modules\identity\Snow.Aba.Identity.Blazor.WebAssembly\Snow.Aba.Identity.Blazor.WebAssembly.csproj" />
     <ProjectReference Include="..\..\..\modules\setting-management\Snow.Aba.SettingManagement.Blazor.WebAssembly\Snow.Aba.SettingManagement.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="..\..\..\modules\tenant-management\Snow.Aba.TenantManagement.Blazor.WebAssembly\Snow.Aba.TenantManagement.Blazor.WebAssembly.csproj" />
     <ProjectReference Include="..\..\src\Acme.BookStore.HttpApi.Client\Acme.BookStore.HttpApi.Client.csproj" />
   </ItemGroup>
 

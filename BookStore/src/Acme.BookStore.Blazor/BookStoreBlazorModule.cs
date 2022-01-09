@@ -16,6 +16,7 @@ using Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme;
 using Snow.Aba.Identity.Blazor.WebAssembly;
 using Snow.Aba.AspNetCore.Components.Web.BasicTheme.Themes.Basic;
 using Snow.Aba.SettingManagement.Blazor.WebAssembly;
+using Snow.Aba.TenantManagement.Blazor.WebAssembly;
 
 namespace Acme.BookStore.Blazor
 {
@@ -24,7 +25,7 @@ namespace Acme.BookStore.Blazor
         typeof(BookStoreHttpApiClientModule),
         typeof(AbpAspNetCoreComponentsWebAssemblyBasicThemeModule),
         typeof(AbaIdentityBlazorWebAssemblyModule),
-    //typeof(AbpTenantManagementBlazorWebAssemblyModule),
+    typeof(AbaTenantManagementBlazorWebAssemblyModule),
     typeof(AbpSettingManagementBlazorWebAssemblyModule)
     )]
     public class BookStoreBlazorModule : AbpModule

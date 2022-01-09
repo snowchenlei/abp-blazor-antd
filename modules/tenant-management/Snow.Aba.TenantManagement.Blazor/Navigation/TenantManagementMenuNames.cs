@@ -1,4 +1,4 @@
-﻿namespace Volo.Abp.TenantManagement.Blazor.Navigation
+﻿namespace Snow.Aba.TenantManagement.Blazor.Navigation
 {
     public class TenantManagementMenuNames
     {

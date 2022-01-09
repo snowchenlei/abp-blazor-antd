@@ -11,7 +11,7 @@ namespace Snow.Aba.AntdBlazorUI
         typeof(AbpDddApplicationContractsModule),
         typeof(AbpAuthorizationModule)
     )]
-    public class AabAntdBlazorUIModule : AbpModule
+    public class AbaAntdBlazorUIModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

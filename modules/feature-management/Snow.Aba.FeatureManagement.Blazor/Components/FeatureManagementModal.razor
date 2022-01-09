@@ -1,0 +1,72 @@
+﻿@using Volo.Abp.Validation.StringValues
+@using Microsoft.Extensions.Localization
+@inherits AbpFeatureManagementComponentBase
+
+<Modal Title="@L["Features"]"
+       Visible="@ShowModal"
+       ConfirmLoading="@ModalConfirmLoading"
+       OnOk="SaveAsync"
+       OnCancel="@CloseModal">
+    @if (Groups == null || !Groups.Any())
+    {
+        <span>@L["NoFeatureFoundMessage"]</span>
+    }
+    else
+    {
+        <Form @ref="IdentityUserCreateForm"
+          Model="@NewEntity"
+          LabelColSpan="4"
+          WrapperColSpan="20"
+          OnFinish="CreateEntityAsync">
+            <Tabs @bind-ActiveKey="@SelectedTabName" Animated TabPosition="TabPosition.Left">
+                @foreach (var group in Groups)
+            {
+                <TabPane Tab="@group.DisplayName" Key="@GetNormalizedGroupName(group.Name)">
+                    <h4>@group.DisplayName</h4>
+                    <hr class="mt-2 mb-3" />
+
+                    @foreach (var feature in group.Features)
+                    {
+                        var disabled = IsDisabled(feature.Provider.Name);
+
+                        if (feature.ValueType is FreeTextStringValueType)
+                        {
+                            <FormItem Label="@feature.DisplayName" Style="@GetFeatureStyles(feature)">
+                                <Input Disabled="@disabled" @bind-Value="@context.Value" OnChange="@(async(v) => await OnFeatureValueChangedAsync(v, feature))" />
+                                @if (feature.Description != null)
+                                {
+                                    <span>@feature.Description</span>
+                                }
+                            </FormItem>
+                        }
+
+                        if (feature.ValueType is SelectionStringValueType)
+                        {
+                            var items = ((SelectionStringValueType)feature.ValueType).ItemSource.Items;
+
+                            <FormItem Label="@feature.DisplayName" Style="@GetFeatureStyles(feature)">
+                                <SimpleSelect @bind-Value="@SelectionStringValues[feature.Name]" Style="width:120px;" OnSelectedItemChanged="handleChange">
+                                    <SelectOptions>
+                                        @foreach (var item in items)
+                                        {
+                                            <SimpleSelectOption Value="@item.Value" Label="@CreateStringLocalizer(item.DisplayText.ResourceName).GetString(item.DisplayText.Name)"></SimpleSelectOption>
+                                        }
+                                    </SelectOptions>
+                                </SimpleSelect>
+                            </FormItem>
+                        }
+
+                        if (feature.ValueType is ToggleStringValueType)
+                        {
+                            <FormItem WrapperColOffset="4" WrapperColSpan="20" Style="@GetFeatureStyles(feature)">
+                                <Checkbox @bind-Value="@ToggleValues[feature.Name]" CheckedChanged="@(async(v) => await OnSelectedValueChangedAsync(v, feature))">@feature.DisplayName</Checkbox>
+                            </FormItem>
+                        }
+                    }
+
+                </TabPane>
+            }
+        </Tabs>
+    </Form>
+    }
+</Modal>

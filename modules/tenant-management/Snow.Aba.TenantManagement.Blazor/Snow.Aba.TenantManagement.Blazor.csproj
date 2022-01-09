@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <Import Project="..\..\..\configureawait.props" />
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\feature-management\Snow.Aba.FeatureManagement.Blazor\Snow.Aba.FeatureManagement.Blazor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\TenantManagement\TenantManagement.razor" />
+  </ItemGroup>
+
+</Project>

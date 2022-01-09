@@ -20,11 +20,11 @@ using AntDesign.TableModels;
 
 namespace Snow.Aba.AntdBlazorUI
 {
-    public abstract class AabCrudPageBase<
+    public abstract class AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey>
-        : AbpCrudPageBase<
+        : AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey,
@@ -36,12 +36,12 @@ namespace Snow.Aba.AntdBlazorUI
     {
     }
 
-    public abstract class AbpCrudPageBase<
+    public abstract class AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey,
             TGetListInput>
-        : AbpCrudPageBase<
+        : AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey,
@@ -56,13 +56,13 @@ namespace Snow.Aba.AntdBlazorUI
     {
     }
 
-    public abstract class AbpCrudPageBase<
+    public abstract class AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey,
             TGetListInput,
             TCreateInput>
-        : AbpCrudPageBase<
+        : AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey,
@@ -80,14 +80,14 @@ namespace Snow.Aba.AntdBlazorUI
     {
     }
 
-    public abstract class AbpCrudPageBase<
+    public abstract class AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TKey,
             TGetListInput,
             TCreateInput,
             TUpdateInput>
-        : AbpCrudPageBase<
+        : AbaCrudPageBase<
             TAppService,
             TEntityDto,
             TEntityDto,
@@ -108,7 +108,7 @@ namespace Snow.Aba.AntdBlazorUI
     {
     }
 
-    public abstract class AbpCrudPageBase<
+    public abstract class AbaCrudPageBase<
             TAppService,
             TGetOutputDto,
             TGetListOutputDto,
@@ -116,7 +116,7 @@ namespace Snow.Aba.AntdBlazorUI
             TGetListInput,
             TCreateInput,
             TUpdateInput>
-        : AbpCrudPageBase<
+        : AbaCrudPageBase<
             TAppService,
             TGetOutputDto,
             TGetListOutputDto,
@@ -142,7 +142,7 @@ namespace Snow.Aba.AntdBlazorUI
     {
     }
 
-    public abstract class AbpCrudPageBase<
+    public abstract class AbaCrudPageBase<
             TAppService,
             TGetOutputDto,
             TGetListOutputDto,
@@ -187,6 +187,10 @@ namespace Snow.Aba.AntdBlazorUI
         protected bool ShowEditModal;
         //protected Validations CreateValidationsRef;
         //protected Validations EditValidationsRef;
+
+        public bool CreateModalConfirmLoading { get; set; }
+        public bool EditModalConfirmLoading { get; set; }
+
         protected List<BreadcrumbItem> BreadcrumbItems = new List<BreadcrumbItem>(2);
         protected EntityActionDictionary EntityActions { get; set; }
         protected TableColumnDictionary TableColumns { get; set; }
@@ -199,7 +203,7 @@ namespace Snow.Aba.AntdBlazorUI
         public bool HasUpdatePermission { get; set; }
         public bool HasDeletePermission { get; set; }
 
-        protected AbpCrudPageBase()
+        protected AbaCrudPageBase()
         {
             NewEntity = new TCreateViewModel();
             EditingEntity = new TUpdateViewModel();

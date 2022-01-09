@@ -1,0 +1,128 @@
+﻿@page "/tenant-management/tenants"
+@attribute [Authorize(TenantManagementPermissions.Tenants.Default)]
+@using Microsoft.AspNetCore.Authorization
+@using Snow.Aba.AntdBlazorUI
+@using Microsoft.AspNetCore.Components.Forms
+@using Volo.Abp.TenantManagement
+@using Volo.Abp.TenantManagement.Localization
+@using Volo.Abp.AspNetCore.Components.Web
+@inject AbpBlazorMessageLocalizerHelper<AbpTenantManagementResource> LH
+@inherits AbaCrudPageBase<ITenantAppService, TenantDto, Guid, GetTenantsInput, TenantCreateDto, TenantUpdateDto>
+<PageContainer Title="@L["Tenants"]">
+    <Breadcrumb>
+        <Breadcrumb>
+            @foreach(BreadcrumbItem breadcrumbItem in BreadcrumbItems)
+            {
+            @breadcrumbItem.BreadCrumb
+            }
+        </Breadcrumb>
+    </Breadcrumb>
+
+        <ChildContent>
+        <Card>
+             @if (HasCreatePermission)
+            {
+                <Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Plus" OnClick="OpenCreateModalAsync">@L["NewUser"]</Button>
+            }
+            @* ************************* DATA GRID ************************* *@
+            <Table TItem="TenantDto" DataSource="Entities" @bind-PageIndex="CurrentPage" @bind-PageSize="PageSize" Total="TotalCount ?? 0"
+                Loading="Loading" OnChange="SearchEntitiesAsync" RemoteDataSource>
+                <Column Title="@L["TenantName"]" @bind-Field="@context.Name"></Column>
+                <ActionColumn Title="@L["Action"]">
+                    <Space Size=@("middle")>
+                        @if (HasUpdatePermission)
+                        {
+                            <SpaceItem>
+                                <Button Type="@ButtonType.Link" OnClick="() => OpenEditModalAsync(context)">@L["Edit"]</Button>
+                            </SpaceItem>
+                        }
+                        @if (HasManageFeaturesPermission)
+                        {
+                            <SpaceItem>
+                                <Button Type="@ButtonType.Link" OnClick="() => OpenPermissionModalAsync(context)">@L["Features"]</Button>
+                            </SpaceItem>
+                        }
+                        @if (HasDeletePermission)
+                        {
+                            <SpaceItem>
+                                <Popconfirm Title="@GetDeleteConfirmationMessage(context)"
+                                        OnConfirm="() => DeleteEntityAsync(context)"
+                                        OkText="@L["Yes"]"
+                                        CancelText="@L["No"]">
+                                        <Button Type="@ButtonType.Link">@L["Delete"]</Button>
+                                </Popconfirm>
+                            </SpaceItem>
+                        }
+                    </Space>
+                </ActionColumn>
+            </Table>
+        </Card>
+        </ChildContent>
+</PageContainer>
+
+
+@* ************************* CREATE MODAL ************************* *@
+@if ( HasCreatePermission )
+{
+    <Modal 
+        Visible="@ShowCreateModal"
+        ConfirmLoading="@CreateModalConfirmLoading"
+        OnOk="()=>{ TenantCreateForm.Submit(); }"
+        OnCancel="@CloseCreateModalAsync">
+        <Form @ref="TenantCreateForm" 
+            Model="@NewEntity" 
+            LabelColSpan="4"
+            WrapperColSpan="20"
+            OnFinish="CreateEntityAsync">
+            <FormItem Label="@L["TenantName"]">
+                <Input @bind-Value="@context.Name" />
+            </FormItem>
+            <FormItem Label="@L["DisplayName:AdminEmailAddress"]">
+                <Input Type="email" @bind-Value="@context.AdminEmailAddress" />
+            </FormItem>
+            <FormItem Label="@L["DisplayName:AdminPassword"]">
+                <Input Type="password" @bind-Value="@context.AdminPassword" />
+            </FormItem>
+            @*<ExtensionProperties TEntityType="TenantCreateDto" TResourceType="AbpTenantManagementResource" Entity="@NewEntity" LH="@LH"/>*@
+        </Form>
+    </Modal>
+}
+
+@* ************************* EDIT MODAL ************************* *@
+@*@if ( HasUpdatePermission )
+{
+    <Modal @ref="EditModal" Closing="@ClosingEditModal">
+        <ModalContent Centered="true">
+            <Form>
+                <ModalHeader>
+                    <ModalTitle>@L["Edit"]</ModalTitle>
+                    <CloseButton Clicked="CloseEditModalAsync"/>
+                </ModalHeader>
+                <ModalBody>
+                    <Validations @ref="@EditValidationsRef" Model="@EditingEntity" ValidateOnLoad="false">
+                        <Validation MessageLocalizer="@LH.Localize">
+                            <Field>
+                                <FieldLabel>@L["TenantName"]</FieldLabel>
+                                <TextEdit @bind-Text="@EditingEntity.Name" Autofocus="true">
+                                    <Feedback>
+                                        <ValidationError/>
+                                    </Feedback>
+                                </TextEdit>
+                            </Field>
+                        </Validation>
+                    </Validations>
+                    <ExtensionProperties TEntityType="TenantUpdateDto" TResourceType="AbpTenantManagementResource" Entity="@EditingEntity" LH="@LH"/>
+                </ModalBody>
+                <ModalFooter>
+                    <Button Color="Color.Secondary" Clicked="CloseEditModalAsync">@L["Cancel"]</Button>
+                    <SubmitButton Clicked="@UpdateEntityAsync"/>
+                </ModalFooter>
+            </Form>
+        </ModalContent>
+    </Modal>
+}*@
+
+@*@if (HasManageFeaturesPermission)
+{
+    <FeatureManagementModal @ref="FeatureManagementModal"/>
+}*@
