@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\..\configureawait.props" />
+    <Import Project="..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+		<PackageId>Snow.ABA.SettingManagement.WebAssembly</PackageId>
+		<Authors>Snow</Authors>
+		<Product>$(PackageId)</Product>
+		<Version>0.1.0</Version>
+		<PackageProjectUrl />
+		<Description>abp blazorUi antd extension</Description>
+		<RepositoryUrl>https://github.com/snowchenlei/abp-blazor-antd</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\framework\Snow.Aba.AspNetCore.Components.WebAssembly.Theming\Snow.Aba.AspNetCore.Components.WebAssembly.Theming.csproj" />
+      <ProjectReference Include="..\Snow.Aba.SettingManagement.Blazor\Snow.Aba.SettingManagement.Blazor.csproj" />
+    </ItemGroup>
+
+</Project>

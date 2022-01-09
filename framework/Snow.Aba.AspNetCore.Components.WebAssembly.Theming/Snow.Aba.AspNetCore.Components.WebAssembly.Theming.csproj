@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\configureawait.props" />
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+		<PackageId>Snow.ABA.AspNetCore.Components.WebAssembly.Theming</PackageId>
+		<Authors>Snow</Authors>
+		<Product>$(PackageId)</Product>
+		<Version>0.1.0</Version>
+		<PackageProjectUrl />
+		<Description>abp blazorUi antd extension</Description>
+		<RepositoryUrl>https://github.com/snowchenlei/abp-blazor-antd</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Snow.Aba.AspNetCore.Components.Web.Theming\Snow.Aba.AspNetCore.Components.Web.Theming.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Update="Fody" Version="6.5.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>

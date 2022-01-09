@@ -29,39 +29,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.BookStore.Blazor", "sr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{54D0694F-462D-4885-9C48-3E952330810C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Blazor", "..\framework\Volo.Abp.Account.Blazor\Volo.Abp.Account.Blazor.csproj", "{A1979D3A-CD27-4ADA-96B7-4D2204D1AEE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AntdBlazorUI", "..\framework\Snow.Aba.AntBlazorUI\Snow.Aba.AntdBlazorUI.csproj", "{BE9FC66E-C1DE-47AB-AD78-15E26E5A94EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AntdBlazorUI", "..\framework\Volo.Abp.AntBlazorUI\Snow.Aba.AntdBlazorUI.csproj", "{BE9FC66E-C1DE-47AB-AD78-15E26E5A94EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.Web.BasicTheme", "..\framework\Snow.Aba.AspNetCore.Components.Web.BasicTheme\Snow.Aba.AspNetCore.Components.Web.BasicTheme.csproj", "{8286121F-ACC5-4BC7-9F64-8E23E8BF4A57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.Web.BasicTheme", "..\framework\Volo.Abp.AspNetCore.Components.Web.BasicTheme\Snow.Aba.AspNetCore.Components.Web.BasicTheme.csproj", "{8286121F-ACC5-4BC7-9F64-8E23E8BF4A57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.Web.Theming", "..\framework\Snow.Aba.AspNetCore.Components.Web.Theming\Snow.Aba.AspNetCore.Components.Web.Theming.csproj", "{4B45640E-A3CD-4EF4-90FF-2DE811F8BED7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.Web.Theming", "..\framework\Volo.Abp.AspNetCore.Components.Web.Theming\Snow.Aba.AspNetCore.Components.Web.Theming.csproj", "{4B45640E-A3CD-4EF4-90FF-2DE811F8BED7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme", "..\framework\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme.csproj", "{824327BD-D194-4630-93A6-A70FBDC0EB8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.WebAssembly", "..\framework\Volo.Abp.AspNetCore.Components.WebAssembly\Snow.Aba.AspNetCore.Components.WebAssembly.csproj", "{C5EADC28-C0AB-4D47-8D6E-8FD6F12299D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.WebAssembly.Theming", "..\framework\Snow.Aba.AspNetCore.Components.WebAssembly.Theming\Snow.Aba.AspNetCore.Components.WebAssembly.Theming.csproj", "{A0686893-2EF5-4F11-832C-1575E4255B89}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme", "..\framework\Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme.csproj", "{824327BD-D194-4630-93A6-A70FBDC0EB8D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.AspNetCore.Components.WebAssembly.Theming", "..\framework\Volo.Abp.AspNetCore.Components.WebAssembly.Theming\Snow.Aba.AspNetCore.Components.WebAssembly.Theming.csproj", "{A0686893-2EF5-4F11-832C-1575E4255B89}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "module", "module", "{A1DC50D3-A5D6-45C1-A9AD-9894C099420E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{A1DC50D3-A5D6-45C1-A9AD-9894C099420E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{AF7239C0-09CB-4A78-A9D5-9FC186146D04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "permission-management", "permission-management", "{4D0F1FA6-F321-4D35-8675-11C288989A64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.Identity.Blazor", "..\module\identity\Volo.Abp.Identity.Blazor\Snow.Aba.Identity.Blazor.csproj", "{7A3DC14E-3BEB-4B88-82B0-52E2191E962D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.Identity.Blazor", "..\modules\identity\Snow.Aba.Identity.Blazor\Snow.Aba.Identity.Blazor.csproj", "{7A3DC14E-3BEB-4B88-82B0-52E2191E962D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.Identity.Blazor.WebAssembly", "..\module\identity\Volo.Abp.Identity.Blazor.WebAssembly\Snow.Aba.Identity.Blazor.WebAssembly.csproj", "{850E205E-35DD-4BB2-AB4D-25D6E69982C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.Identity.Blazor.WebAssembly", "..\modules\identity\Snow.Aba.Identity.Blazor.WebAssembly\Snow.Aba.Identity.Blazor.WebAssembly.csproj", "{850E205E-35DD-4BB2-AB4D-25D6E69982C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.PermissionManagement.Blazor", "..\module\permission-management\Volo.Abp.PermissionManagement.Blazor\Snow.Aba.PermissionManagement.Blazor.csproj", "{0B18EAA2-E822-450D-8979-F3E0729A36E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.PermissionManagement.Blazor", "..\modules\permission-management\Snow.Aba.PermissionManagement.Blazor\Snow.Aba.PermissionManagement.Blazor.csproj", "{0B18EAA2-E822-450D-8979-F3E0729A36E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.PermissionManagement.Blazor.WebAssembly", "..\module\permission-management\Volo.Abp.PermissionManagement.Blazor.WebAssembly\Snow.Aba.PermissionManagement.Blazor.WebAssembly.csproj", "{99B770DE-2083-4C9F-9C78-9C07AB66F56F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.PermissionManagement.Blazor.WebAssembly", "..\modules\permission-management\Snow.Aba.PermissionManagement.Blazor.WebAssembly\Snow.Aba.PermissionManagement.Blazor.WebAssembly.csproj", "{99B770DE-2083-4C9F-9C78-9C07AB66F56F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "setting-management", "setting-management", "{76A4AC44-A934-4BB2-A80C-9BFBD17F98AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.SettingManagement.Blazor", "..\module\setting-management\Volo.Abp.SettingManagement.Blazor\Snow.Aba.SettingManagement.Blazor.csproj", "{1FCDA742-13B5-4DB4-9221-882A60110AD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.SettingManagement.Blazor", "..\modules\setting-management\Snow.Aba.SettingManagement.Blazor\Snow.Aba.SettingManagement.Blazor.csproj", "{1FCDA742-13B5-4DB4-9221-882A60110AD2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.SettingManagement.Blazor.WebAssembly", "..\module\setting-management\Volo.Abp.SettingManagement.Blazor.WebAssembly\Snow.Aba.SettingManagement.Blazor.WebAssembly.csproj", "{8D5432CE-C294-442B-8522-AB8991AD5A32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snow.Aba.SettingManagement.Blazor.WebAssembly", "..\modules\setting-management\Snow.Aba.SettingManagement.Blazor.WebAssembly\Snow.Aba.SettingManagement.Blazor.WebAssembly.csproj", "{8D5432CE-C294-442B-8522-AB8991AD5A32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,10 +105,6 @@ Global
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1979D3A-CD27-4ADA-96B7-4D2204D1AEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1979D3A-CD27-4ADA-96B7-4D2204D1AEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1979D3A-CD27-4ADA-96B7-4D2204D1AEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1979D3A-CD27-4ADA-96B7-4D2204D1AEE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE9FC66E-C1DE-47AB-AD78-15E26E5A94EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE9FC66E-C1DE-47AB-AD78-15E26E5A94EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE9FC66E-C1DE-47AB-AD78-15E26E5A94EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -125,10 +117,6 @@ Global
 		{4B45640E-A3CD-4EF4-90FF-2DE811F8BED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B45640E-A3CD-4EF4-90FF-2DE811F8BED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B45640E-A3CD-4EF4-90FF-2DE811F8BED7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5EADC28-C0AB-4D47-8D6E-8FD6F12299D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5EADC28-C0AB-4D47-8D6E-8FD6F12299D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5EADC28-C0AB-4D47-8D6E-8FD6F12299D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5EADC28-C0AB-4D47-8D6E-8FD6F12299D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{824327BD-D194-4630-93A6-A70FBDC0EB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{824327BD-D194-4630-93A6-A70FBDC0EB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{824327BD-D194-4630-93A6-A70FBDC0EB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -176,11 +164,9 @@ Global
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
-		{A1979D3A-CD27-4ADA-96B7-4D2204D1AEE4} = {54D0694F-462D-4885-9C48-3E952330810C}
 		{BE9FC66E-C1DE-47AB-AD78-15E26E5A94EB} = {54D0694F-462D-4885-9C48-3E952330810C}
 		{8286121F-ACC5-4BC7-9F64-8E23E8BF4A57} = {54D0694F-462D-4885-9C48-3E952330810C}
 		{4B45640E-A3CD-4EF4-90FF-2DE811F8BED7} = {54D0694F-462D-4885-9C48-3E952330810C}
-		{C5EADC28-C0AB-4D47-8D6E-8FD6F12299D2} = {54D0694F-462D-4885-9C48-3E952330810C}
 		{824327BD-D194-4630-93A6-A70FBDC0EB8D} = {54D0694F-462D-4885-9C48-3E952330810C}
 		{A0686893-2EF5-4F11-832C-1575E4255B89} = {54D0694F-462D-4885-9C48-3E952330810C}
 		{AF7239C0-09CB-4A78-A9D5-9FC186146D04} = {A1DC50D3-A5D6-45C1-A9AD-9894C099420E}

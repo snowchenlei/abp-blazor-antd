@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <Import Project="..\..\configureawait.props" />
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<PackageId>Snow.ABA.AspNetCore.Components.Web.Theming</PackageId>
+	<Authors>Snow</Authors>
+	<Product>$(PackageId)</Product>
+	<Version>0.1.0</Version>
+	<PackageProjectUrl />
+	  <Description>abp blazorUi antd extension</Description>
+	<RepositoryUrl>https://github.com/snowchenlei/abp-blazor-antd</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Layout\**" />
+    <Compile Remove="PageToolbars\**" />
+    <Content Remove="Layout\**" />
+    <Content Remove="PageToolbars\**" />
+    <EmbeddedResource Remove="Layout\**" />
+    <EmbeddedResource Remove="PageToolbars\**" />
+    <None Remove="Layout\**" />
+    <None Remove="PageToolbars\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.UI.Navigation" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Snow.Aba.AntBlazorUI\Snow.Aba.AntdBlazorUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Fody" Version="6.5.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

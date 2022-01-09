@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\framework\Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme.csproj" />
-    <ProjectReference Include="..\..\..\module\identity\Volo.Abp.Identity.Blazor.WebAssembly\Snow.Aba.Identity.Blazor.WebAssembly.csproj" />
-    <ProjectReference Include="..\..\..\module\setting-management\Volo.Abp.SettingManagement.Blazor.WebAssembly\Snow.Aba.SettingManagement.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="..\..\..\framework\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme\Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme.csproj" />
+    <ProjectReference Include="..\..\..\modules\identity\Snow.Aba.Identity.Blazor.WebAssembly\Snow.Aba.Identity.Blazor.WebAssembly.csproj" />
+    <ProjectReference Include="..\..\..\modules\setting-management\Snow.Aba.SettingManagement.Blazor.WebAssembly\Snow.Aba.SettingManagement.Blazor.WebAssembly.csproj" />
     <ProjectReference Include="..\..\src\Acme.BookStore.HttpApi.Client\Acme.BookStore.HttpApi.Client.csproj" />
   </ItemGroup>
 
