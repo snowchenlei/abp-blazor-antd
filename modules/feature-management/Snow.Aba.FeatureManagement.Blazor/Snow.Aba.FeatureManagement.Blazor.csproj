@@ -8,14 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Components\FeatureManagementModal.razor.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Remove="Components\FeatureManagementModal.razor" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Volo.Abp.AutoMapper" Version="5.0.0" />
       <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="5.0.0" />
       <PackageReference Include="Volo.Abp.Features" Version="5.0.0" />
@@ -29,10 +21,6 @@
       <Content Update="_Imports.razor">
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Components\" />
     </ItemGroup>
 
 </Project>

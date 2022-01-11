@@ -2,6 +2,7 @@
 @attribute [Authorize(TenantManagementPermissions.Tenants.Default)]
 @using Microsoft.AspNetCore.Authorization
 @using Snow.Aba.AntdBlazorUI
+@using Snow.Aba.FeatureManagement.Blazor.Components
 @using Microsoft.AspNetCore.Components.Forms
 @using Volo.Abp.TenantManagement
 @using Volo.Abp.TenantManagement.Localization
@@ -109,7 +110,7 @@
     </Modal>
 }
 
-@*@if (HasManageFeaturesPermission)
+@if (HasManageFeaturesPermission)
 {
+}
     <FeatureManagementModal @ref="FeatureManagementModal"/>
-}*@

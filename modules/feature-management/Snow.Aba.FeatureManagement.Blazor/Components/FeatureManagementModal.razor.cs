@@ -38,8 +38,6 @@ public partial class FeatureManagementModal
     protected bool ShowModal;
     public bool ModalConfirmLoading { get; set; }
 
-    private Form<IdentityUserCreateDto> IdentityUserCreateForm;
-
     protected List<FeatureGroupDto> Groups { get; set; }
 
     protected Dictionary<string, bool> ToggleValues;
@@ -48,6 +46,7 @@ public partial class FeatureManagementModal
 
     public virtual async Task OpenAsync([NotNull] string providerName, string providerKey = null)
     {
+        ShowModal = true;
         try
         {
             ProviderName = providerName;
@@ -81,7 +80,8 @@ public partial class FeatureManagementModal
                 }
             }
 
-            await InvokeAsync(Modal.Show);
+            ShowModal = true;
+            await InvokeAsync(new Action(StateHasChanged));
         }
         catch (Exception ex)
         {
@@ -89,15 +89,17 @@ public partial class FeatureManagementModal
         }
     }
 
-    public virtual Task CloseModal()
+    public virtual async Task CloseModal()
     {
-        return InvokeAsync(Modal.Hide);
+        ShowModal = false;
+        await Task.CompletedTask;
     }
 
     protected virtual async Task SaveAsync()
     {
         try
         {
+            ModalConfirmLoading = true;
             var features = new UpdateFeaturesDto
             {
                 Features = Groups.SelectMany(g => g.Features).Select(f => new UpdateFeatureDto
@@ -112,10 +114,12 @@ public partial class FeatureManagementModal
 
             await CurrentApplicationConfigurationCacheResetService.ResetAsync();
 
-            await InvokeAsync(Modal.Hide);
+            ShowModal = false;
+            ModalConfirmLoading = false;            
         }
         catch (Exception ex)
         {
+            ModalConfirmLoading = false;
             await HandleErrorAsync(ex);
         }
     }
