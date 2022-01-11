@@ -22,7 +22,7 @@
         <Card>
              @if (HasCreatePermission)
             {
-                <Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Plus" OnClick="OpenCreateModalAsync">@L["NewUser"]</Button>
+                <Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Plus" OnClick="OpenCreateModalAsync">@L["NewTenant"]</Button>
             }
             @* ************************* DATA GRID ************************* *@
             <Table TItem="TenantDto" DataSource="Entities" @bind-PageIndex="CurrentPage" @bind-PageSize="PageSize" Total="TotalCount ?? 0"
@@ -65,14 +65,14 @@
 @if ( HasCreatePermission )
 {
     <Modal 
+        Title="@L["NewTenant"]"
         Visible="@ShowCreateModal"
         ConfirmLoading="@CreateModalConfirmLoading"
         OnOk="()=>{ TenantCreateForm.Submit(); }"
         OnCancel="@CloseCreateModalAsync">
         <Form @ref="TenantCreateForm" 
-            Model="@NewEntity" 
-            LabelColSpan="4"
-            WrapperColSpan="20"
+            Layout="@FormLayout.Vertical"
+            Model="@NewEntity"
             OnFinish="CreateEntityAsync">
             <FormItem Label="@L["TenantName"]">
                 <Input @bind-Value="@context.Name" />
@@ -89,38 +89,25 @@
 }
 
 @* ************************* EDIT MODAL ************************* *@
-@*@if ( HasUpdatePermission )
+@if ( HasUpdatePermission )
 {
-    <Modal @ref="EditModal" Closing="@ClosingEditModal">
-        <ModalContent Centered="true">
-            <Form>
-                <ModalHeader>
-                    <ModalTitle>@L["Edit"]</ModalTitle>
-                    <CloseButton Clicked="CloseEditModalAsync"/>
-                </ModalHeader>
-                <ModalBody>
-                    <Validations @ref="@EditValidationsRef" Model="@EditingEntity" ValidateOnLoad="false">
-                        <Validation MessageLocalizer="@LH.Localize">
-                            <Field>
-                                <FieldLabel>@L["TenantName"]</FieldLabel>
-                                <TextEdit @bind-Text="@EditingEntity.Name" Autofocus="true">
-                                    <Feedback>
-                                        <ValidationError/>
-                                    </Feedback>
-                                </TextEdit>
-                            </Field>
-                        </Validation>
-                    </Validations>
-                    <ExtensionProperties TEntityType="TenantUpdateDto" TResourceType="AbpTenantManagementResource" Entity="@EditingEntity" LH="@LH"/>
-                </ModalBody>
-                <ModalFooter>
-                    <Button Color="Color.Secondary" Clicked="CloseEditModalAsync">@L["Cancel"]</Button>
-                    <SubmitButton Clicked="@UpdateEntityAsync"/>
-                </ModalFooter>
-            </Form>
-        </ModalContent>
+    <Modal 
+        Title="@L["Edit"]"
+        Visible="@ShowEditModal"
+        ConfirmLoading="@EditModalConfirmLoading"
+        OnOk="()=>{ TenantEditForm.Submit(); }"
+        OnCancel="@CloseEditModalAsync">
+        <Form @ref="TenantEditForm" 
+            Layout="@FormLayout.Vertical"
+            Model="@EditingEntity"
+            OnFinish="UpdateEntityAsync">
+            <FormItem Label="@L["TenantName"]">
+                <Input @bind-Value="@context.Name" />
+            </FormItem>
+            @*<ExtensionProperties TEntityType="TenantUpdateDto" TResourceType="AbpTenantManagementResource" Entity="@EditingEntity" LH="@LH"/>*@
+        </Form>
     </Modal>
-}*@
+}
 
 @*@if (HasManageFeaturesPermission)
 {
