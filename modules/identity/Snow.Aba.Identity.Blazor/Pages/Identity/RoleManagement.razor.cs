@@ -28,8 +28,6 @@ namespace Snow.Aba.Identity.Blazor.Pages.Identity
 
         protected Modal EditModal;
         protected bool Loading = false;
-        public bool CreateModalConfirmLoading { get; set; }
-        public bool EditModalConfirmLoading { get; set; }
 
         public RoleManagement()
         {
@@ -54,42 +52,34 @@ namespace Snow.Aba.Identity.Blazor.Pages.Identity
             await PermissionManagementModal.OpenAsync(PermissionProviderName, entity.Name.ToString());
         }
 
-        protected override Task OnCreatingEntityAsync()
+        protected override async Task OnCreatingEntityAsync()
         {
-            CreateModalConfirmLoading = true;
-            return Task.CompletedTask;
+            await base.OnCreatingEntityAsync();
         }
 
-        protected override Task OnCreateEntityErrorAsync()
+        protected override async Task OnCreateEntityErrorAsync()
         {
-            CreateModalConfirmLoading = false;
-            return Task.CompletedTask;
+            await base.OnCreateEntityErrorAsync();
         }
 
         protected override async Task OnCreatedEntityAsync()
         {
-            CreateModalConfirmLoading = false;
             await base.OnCreatedEntityAsync();
         }
 
-        protected override Task OnUpdatingEntityAsync()
+        protected override async Task OnUpdatingEntityAsync()
         {
-            EditModalConfirmLoading = true;
-
-            return Task.CompletedTask;
+            await base.OnUpdatingEntityAsync();
         }
 
-        protected override Task OnUpdateEntityErrorAsync()
+        protected override async Task OnUpdateEntityErrorAsync()
         {
-            EditModalConfirmLoading = false;
-
-            return Task.CompletedTask;
+            await base.OnUpdateEntityErrorAsync();
         }
 
-        protected override Task OnUpdatedEntityAsync()
+        protected override async Task OnUpdatedEntityAsync()
         {
-            EditModalConfirmLoading = false;
-            return base.OnUpdatedEntityAsync();
+            await base.OnUpdatedEntityAsync();
         }
         protected override string GetDeleteConfirmationMessage(IdentityRoleDto entity)
         {

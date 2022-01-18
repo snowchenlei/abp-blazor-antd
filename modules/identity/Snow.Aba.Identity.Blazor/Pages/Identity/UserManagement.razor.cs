@@ -113,48 +113,40 @@ namespace Snow.Aba.Identity.Blazor.Pages.Identity
             await PermissionManagementModal.OpenAsync(PermissionProviderName, entity.Id.ToString());
         }
 
-        protected override Task OnCreatingEntityAsync()
+        protected override async Task OnCreatingEntityAsync()
         {
-            CreateModalConfirmLoading = true;
+           await base.OnCreatingEntityAsync();
 
             // apply roles before saving
             NewEntity.RoleNames = NewUserRoles.Where(x => x.IsAssigned).Select(x => x.Name).ToArray();
 
-            return Task.CompletedTask;
         }
 
-        protected override Task OnCreateEntityErrorAsync()
+        protected override async Task OnCreateEntityErrorAsync()
         {
-            CreateModalConfirmLoading = false;
-            return Task.CompletedTask;
+           await base.OnCreatingEntityAsync();
         }
 
         protected override async Task OnCreatedEntityAsync()
-        {
-            CreateModalConfirmLoading = false;
+        {            
             await base.OnCreatedEntityAsync();
         }
 
-        protected override Task OnUpdatingEntityAsync()
+        protected override async Task OnUpdatingEntityAsync()
         {
-            EditModalConfirmLoading = true;
+            await base.OnUpdatedEntityAsync();
 
             // apply roles before saving
             EditingEntity.RoleNames = EditUserRoles.Where(x => x.IsAssigned).Select(x => x.Name).ToArray();
-
-            return Task.CompletedTask;
         }
 
-        protected override Task OnUpdateEntityErrorAsync()
+        protected override async Task OnUpdateEntityErrorAsync()
         {
-            EditModalConfirmLoading = false;
-
-            return Task.CompletedTask;
+            await base.OnUpdateEntityErrorAsync();
         }
 
         protected override Task OnUpdatedEntityAsync()
         {
-            EditModalConfirmLoading = false;
             return base.OnUpdatedEntityAsync();
         }
 

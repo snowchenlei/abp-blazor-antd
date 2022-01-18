@@ -9,7 +9,6 @@ using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
-using Volo.Abp.TenantManagement.Blazor.WebAssembly;
 using Snow.Aba.AspNetCore.Components.Web.Theming.Routing;
 using Snow.Aba.AspNetCore.Components.Web.Theming.Toolbars;
 using Snow.Aba.AspNetCore.Components.WebAssembly.BasicTheme;

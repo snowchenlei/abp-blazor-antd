@@ -401,7 +401,7 @@ namespace Snow.Aba.AntdBlazorUI
         protected virtual async Task CreateEntityAsync()
         {
             try
-            {
+            {                
                 //if (CreateValidationsRef?.ValidateAll() ?? true)
                 {
                     await OnCreatingEntityAsync();
@@ -414,7 +414,7 @@ namespace Snow.Aba.AntdBlazorUI
                 }
             }
             catch (Exception ex)
-            {
+            {                
                 await OnCreateEntityErrorAsync();
                 await HandleErrorAsync(ex);
             }
@@ -422,17 +422,20 @@ namespace Snow.Aba.AntdBlazorUI
 
         protected virtual Task OnCreatingEntityAsync()
         {
+            CreateModalConfirmLoading = true;
             return Task.CompletedTask;
         }
 
         protected virtual Task OnCreateEntityErrorAsync()
         {
+            CreateModalConfirmLoading = false;
             return Task.CompletedTask;
         }
 
         protected virtual async Task OnCreatedEntityAsync()
         {
             await GetEntitiesAsync();
+            CreateModalConfirmLoading = false;
             ShowCreateModal = false;
         }
 
@@ -460,16 +463,19 @@ namespace Snow.Aba.AntdBlazorUI
 
         protected virtual Task OnUpdatingEntityAsync()
         {
+            EditModalConfirmLoading = true;
             return Task.CompletedTask;
         }
 
         protected virtual Task OnUpdateEntityErrorAsync()
         {
+            EditModalConfirmLoading = false;
             return Task.CompletedTask;
         }
         protected virtual async Task OnUpdatedEntityAsync()
         {
             await GetEntitiesAsync();
+            EditModalConfirmLoading = false;
             ShowEditModal = false;
         }
 

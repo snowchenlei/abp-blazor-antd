@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Volo.Abp.TenantManagement;
 
 namespace Snow.Aba.TenantManagement.Blazor
 {

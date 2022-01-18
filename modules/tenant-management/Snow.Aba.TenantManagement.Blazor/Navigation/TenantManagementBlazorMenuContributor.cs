@@ -2,6 +2,7 @@
 using Volo.Abp.TenantManagement.Localization;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Authorization.Permissions;
+using Volo.Abp.TenantManagement;
 
 namespace Snow.Aba.TenantManagement.Blazor.Navigation
 {
