@@ -1,0 +1,8 @@
+﻿@typeparam TEntity
+@typeparam TResourceType
+@using Volo.Abp.Localization
+
+<FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)" >
+    <AutoComplete @bind-Value="@Value" Options="@lookupItems" OnSelectionChange="SelectedValueChanged" OnInput="SearchFilterChangedAsync"/>
+</FormItem>
+ 

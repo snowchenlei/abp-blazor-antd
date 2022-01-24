@@ -2,6 +2,7 @@
 @attribute [Authorize(IdentityPermissions.Users.Default)]
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.Extensions.Localization
+@using Snow.Aba.AntdBlazorUI.Components.ObjectExtending
 @using Volo.Abp.Identity
 @using Volo.Abp.Identity.Localization
 @using Snow.Aba.PermissionManagement.Blazor.Components
@@ -99,6 +100,7 @@
                     <FormItem WrapperColOffset="4" WrapperColSpan="20">
                         <Checkbox @bind-Value="context.LockoutEnabled">@L["DisplayName:LockoutEnabled"]</Checkbox>
                     </FormItem>
+                    <ExtensionProperties TEntityType="IdentityUserCreateDto" TResourceType="IdentityResource" Entity="@NewEntity" LH="@LH"/>
                 </TabPane>
                 <TabPane Tab="@L["Roles"]" Key="Roles">
                     @if (NewUserRoles != null)

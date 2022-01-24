@@ -1,0 +1,20 @@
+﻿@typeparam TEntity
+@typeparam TResourceType
+@using Volo.Abp.BlazoriseUI
+@using Volo.Abp.Localization
+@using Volo.Abp.ObjectExtending
+
+@if (PropertyInfo != null && Entity != null)
+{
+    <FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)">
+        @if (PropertyInfo.IsDate())
+        {
+            <DatePicker TValue="DateTime?" Picker="@DatePickerType.Date" Format="@PropertyInfo.GetDateEditInputFormatOrNull()"/>
+        }
+        else
+        {
+            <DatePicker TValue="DateTime?" ShowTime="@true" Format="@PropertyInfo.GetDateEditInputFormatOrNull()"/>
+        }
+
+    </FormItem>
+}
