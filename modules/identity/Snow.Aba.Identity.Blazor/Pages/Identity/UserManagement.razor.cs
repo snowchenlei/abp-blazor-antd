@@ -124,7 +124,7 @@ namespace Snow.Aba.Identity.Blazor.Pages.Identity
 
         protected override async Task OnCreateEntityErrorAsync()
         {
-           await base.OnCreatingEntityAsync();
+           await base.OnCreateEntityErrorAsync();
         }
 
         protected override async Task OnCreatedEntityAsync()

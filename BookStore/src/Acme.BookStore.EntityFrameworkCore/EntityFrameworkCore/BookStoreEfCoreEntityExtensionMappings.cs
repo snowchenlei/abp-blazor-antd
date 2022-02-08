@@ -56,6 +56,18 @@ namespace Acme.BookStore.EntityFrameworkCore
                                  propertyBuilder.HasMaxLength(128);
                              }
                          );
+                ObjectExtensionManager.Instance
+                         .MapEfCoreProperty<IdentityUser, BookStoreType>(
+                             "Tp"
+                         );
+                ObjectExtensionManager.Instance
+                         .MapEfCoreProperty<IdentityUser, TimeSpan>(
+                             "Ts"
+                         );
+                ObjectExtensionManager.Instance
+                         .MapEfCoreProperty<IdentityUser, bool>(
+                             "Bl"
+                         );
             });
         }
     }

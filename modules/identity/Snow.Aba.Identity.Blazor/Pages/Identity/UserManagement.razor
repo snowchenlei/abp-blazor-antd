@@ -155,6 +155,7 @@
                         <FormItem WrapperColOffset="4" WrapperColSpan="20">
                             <Checkbox @bind-Value="context.LockoutEnabled">@L["DisplayName:LockoutEnabled"]</Checkbox>
                         </FormItem>
+                        <ExtensionProperties TEntityType="IdentityUserUpdateDto" TResourceType="IdentityResource" Entity="@EditingEntity" LH="@LH"/>
                     </TabPane>
                     <TabPane Tab="@L["Roles"]" Key="Roles">
                         @if (EditUserRoles != null)

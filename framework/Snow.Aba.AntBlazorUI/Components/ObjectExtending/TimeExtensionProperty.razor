@@ -6,6 +6,6 @@
 @if (PropertyInfo != null && Entity != null)
 {
     <FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)">
-        <TimePicker TValue="TimeSpan?"  @bind-Value="@Value" />
+        <TimePicker TValue="DateTime?"  @bind-Value="@Value" />
     </FormItem>
 }

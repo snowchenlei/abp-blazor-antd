@@ -9,12 +9,11 @@
     <FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)">
         @if (PropertyInfo.IsDate())
         {
-            <DatePicker TValue="DateTime?" Picker="@DatePickerType.Date" Format="@PropertyInfo.GetDateEditInputFormatOrNull()"/>
+            <DatePicker @bind-Value="@Value" TValue="DateTime?" Picker="@DatePickerType.Date" Format="@PropertyInfo.GetDateEditInputFormatOrNull()"/>
         }
         else
         {
-            <DatePicker TValue="DateTime?" ShowTime="@true" Format="@PropertyInfo.GetDateEditInputFormatOrNull()"/>
+            <DatePicker @bind-Value="@Value" TValue="DateTime?" ShowTime="@true" Format="@PropertyInfo.GetDateEditInputFormatOrNull()"/>
         }
-
     </FormItem>
 }

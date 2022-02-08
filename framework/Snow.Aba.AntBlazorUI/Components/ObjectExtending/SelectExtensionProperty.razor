@@ -3,7 +3,7 @@
 @using Volo.Abp.Localization
 
 <FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)" >
-    <SimpleSelect @bind-Value="Value">
+    <SimpleSelect @bind-Value="SelectedValue.ToString()">
         <SelectOptions>
             @foreach (var item in SelectItems)
             {

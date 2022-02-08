@@ -22,11 +22,12 @@ namespace Snow.Aba.AntdBlazorUI.Components.ObjectExtending
         [Parameter]
         public ObjectExtensionPropertyInfo PropertyInfo { get; set; }
 
-        protected TimeSpan? Value
+        // TODO:如何使用TimeSpan
+        protected DateTime? Value
         {
             get
             {
-                return PropertyInfo.GetInputValueOrDefault<TimeSpan?>(Entity.GetProperty(PropertyInfo.Name));
+                return PropertyInfo.GetInputValueOrDefault<DateTime?>(Entity.GetProperty(PropertyInfo.Name));
             }
             set
             {
