@@ -1,0 +1,14 @@
+﻿@typeparam TEntity
+@typeparam TResourceType
+@using Volo.Abp.Localization
+
+<FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)" >
+    <SimpleSelect @bind-Value="SelectedValue.ToString()">
+        <SelectOptions>
+            @foreach (var item in SelectItems)
+            {
+                <SimpleSelectOption Value="@item.Value.ToString()" Label="@item.Text"></SimpleSelectOption>
+            }
+        </SelectOptions>
+    </SimpleSelect>
+</FormItem>

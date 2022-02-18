@@ -4,6 +4,7 @@ using Acme.BookStore.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Acme.BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    partial class BookStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220124133429_AddTestColumn")]
+    partial class AddTestColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -598,9 +600,6 @@ namespace Acme.BookStore.Migrations
                         .HasDefaultValue(0)
                         .HasColumnName("AccessFailedCount");
 
-                    b.Property<bool>("Bl")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("Cd")
                         .HasMaxLength(128)
                         .HasColumnType("datetime2");
@@ -726,12 +725,6 @@ namespace Acme.BookStore.Migrations
                     b.Property<Guid?>("TenantId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("TenantId");
-
-                    b.Property<int>("Tp")
-                        .HasColumnType("int");
-
-                    b.Property<TimeSpan>("Ts")
-                        .HasColumnType("time");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .ValueGeneratedOnAdd()
